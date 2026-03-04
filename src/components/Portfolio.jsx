@@ -41,7 +41,6 @@ const filters = [
   { label: 'All', value: '-1' },
   { label: 'Art & Culture', value: 'art-culture' },
   { label: 'Concepts', value: 'concepts' },
-  { label: 'eCommerce', value: 'ecommerce' },
   { label: 'Websites', value: 'websites' },
 ];
 
