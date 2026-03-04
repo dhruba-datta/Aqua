@@ -1,5 +1,8 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const testimonials = [
   {
@@ -55,9 +58,12 @@ export default function Testimonials() {
     };
   }, [startTimer]);
 
-  // Animation handling
+  // Animation handling and Background Transition
   useEffect(() => {
+    const mainSection = document.getElementById("main-content");
+    
     const ctx = gsap.context(() => {
+      // Slide transitions
       const activeSlide = containerRef.current?.querySelector('blockquote.active');
       if (activeSlide) {
         gsap.fromTo(activeSlide, 

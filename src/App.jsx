@@ -7,7 +7,6 @@ import Services from './components/Services';
 import Statement from './components/Statement';
 import Portfolio from './components/Portfolio';
 import Testimonials from './components/Testimonials';
-import Contact from './components/Contact';
 import Footer from './components/Footer';
 
 export default function App() {
@@ -75,7 +74,6 @@ export default function App() {
           <Statement />
           <Portfolio />
           <Testimonials />
-          <Contact />
         </main>
 
         <Footer />
