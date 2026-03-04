@@ -66,7 +66,7 @@ export default function App() {
         className={`content-wrapper ${menuOpen ? 'content-wrapper--menu-open' : ''}`}
         style={{ transformOrigin: scrollOrigin }}
       >
-        <Header onMenuOpen={handleMenuOpen} />
+        <Header onMenuOpen={handleMenuOpen} lenis={lenis} />
 
         <main className="noise-bg bg-orange-accent z-0" id="main-content">
           <Hero />

@@ -9,7 +9,7 @@ export default function Footer() {
 
   useEffect(() => {
     const mainSection = document.getElementById("main-content");
-    const triggerText = document.getElementById("footer-trigger-text");
+    const triggerText = document.getElementById("contact");
     if (!mainSection || !footerRef.current || !triggerText) return;
 
     const ctx = gsap.context(() => {
@@ -58,10 +58,10 @@ export default function Footer() {
       id="footer"
       style={{ backgroundColor: "#f5f5f5" }}
     >
-      <div className="mx-auto px-12 sm:px-24 lg:px-32 w-full max-w-[1440px] relative z-10 flex-1 flex flex-col">
+      <div className="mx-auto px-12 sm:px-24 lg:px-32 w-full max-w-[1600px] relative z-10 flex-1 flex flex-col">
         
         {/* Top Section */}
-        <div className="max-w-5xl mb-24 md:mb-auto mt-8" id="footer-trigger-text">
+        <div className="max-w-5xl mb-24 md:mb-auto mt-8" id="contact">
           <div className="flex items-center gap-3 mb-8">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="opacity-50">
               <path d="M12 2v20M2 12h20" />
@@ -97,7 +97,7 @@ export default function Footer() {
 
       {/* Bottom Section (Logo and Copyright) */}
       <div className="w-full mt-24 border-t border-black/10 pt-10">
-        <div className="mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-[12px] font-bold uppercase tracking-widest opacity-40 px-12 sm:px-24 lg:px-32 w-full max-w-[1440px]">
+        <div className="mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-[12px] font-bold uppercase tracking-widest opacity-40 px-12 sm:px-24 lg:px-32 w-full max-w-[1600px]">
           <span>© {new Date().getFullYear()} Signal. All rights reserved.</span>
           <div className="flex gap-10">
             <a href="#" className="hover:text-black transition-colors">Privacy Policy</a>

@@ -142,7 +142,7 @@
 
   /* Statement Section — matches reference nectar-text-inline-images */
   .statement-container {
-    max-width: 1440px;
+    max-width: 1600px;
     margin: 0 auto;
     padding: 0 1rem;
     text-align: center;
@@ -369,7 +369,7 @@
       margin-top: 30px;
       padding: 0 40px;
     }
-    
+
     .testimonial_slider .testimonial-next-prev a {
       width: 40px;
       height: 40px;

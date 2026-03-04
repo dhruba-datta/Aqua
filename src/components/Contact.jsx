@@ -20,8 +20,8 @@ export default function Contact() {
   }, []);
 
   return (
-    <section className="py-24 md:py-32 overflow-hidden" id="contact" ref={sectionRef}>
-      <div className="mx-auto px-6 sm:px-10 lg:px-16 max-w-[1440px]">
+    <section className="py-24 md:py-32 overflow-hidden" id="contact-section" ref={sectionRef}>
+      <div className="mx-auto px-6 sm:px-10 lg:px-16 max-w-[1600px]">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-20 mb-32 opacity-0 translate-y-10 [.is-visible_&]:opacity-100 [.is-visible_&]:translate-y-0 transition-all duration-1000">
           <div className="flex flex-col gap-6">
             <span className="text-accent text-sm font-bold uppercase tracking-widest">Say Hello</span>

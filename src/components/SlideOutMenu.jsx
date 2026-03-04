@@ -1,8 +1,9 @@
 const menuLinks = [
   { label: "Index", href: "#" },
   { label: "Services", href: "#services" },
+  { label: "Featured Work", href: "#portfolio" },
   { label: "Testimonials", href: "#testimonials" },
-  { label: "Work", href: "#portfolio" },
+  { label: "Contact", href: "#contact" },
 ];
 
 export default function SlideOutMenu({ isOpen, onClose, lenis }) {
