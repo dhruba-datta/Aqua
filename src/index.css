@@ -182,4 +182,45 @@
     }
   }
 
+  /* Testimonials Section */
+  .testimonial-section {
+    background-color: #FAF9F6; /* Matches the subtle beige in-reference */
+  }
+
+  .testimonial-image {
+    position: relative;
+    border: 6px solid #fff;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  }
+
+  .nav-btn {
+    color: #121213;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+
+  .nav-btn svg {
+    stroke-width: 1px;
+  }
+
+  .testimonial-controls {
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  @media (max-width: 768px) {
+    .testimonial-nav {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      pointer-events: none;
+    }
+    
+    .nav-btn {
+      pointer-events: auto;
+      transform: translateY(-100px);
+    }
+  }
 }

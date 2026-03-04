@@ -6,7 +6,6 @@ import Hero from './components/Hero';
 import Services from './components/Services';
 import Statement from './components/Statement';
 import Portfolio from './components/Portfolio';
-import Marquee from './components/Marquee';
 import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
@@ -75,7 +74,6 @@ export default function App() {
           <Services />
           <Statement />
           <Portfolio />
-          <Marquee />
           <Testimonials />
           <Contact />
         </main>

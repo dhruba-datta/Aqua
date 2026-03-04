@@ -123,10 +123,10 @@ export default function Portfolio() {
       ref={sectionRef}
       onMouseMove={handleMouseMove}
     >
-      <div className="w-full px-4 sm:px-10 lg:px-16">
+      <div className="w-full px-12 sm:px-24 lg:px-32">
         {/* Header: Label and Filters Flex Layout */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-12 w-full">
-          <p className="uppercase text-[14px] md:text-[16px] font-bold tracking-widest text-black m-0 shrink-0">
+          <p className="uppercase text-[18px] md:text-[22px] font-bold tracking-widest text-black m-0 shrink-0">
             Featured Work
           </p>
           <div className="hidden md:flex flex-wrap gap-6">
@@ -159,7 +159,7 @@ export default function Portfolio() {
               onMouseLeave={handleItemLeave}
             >
               <div className="portfolio-item-inner flex items-center justify-between py-5 md:py-6 px-4 md:px-8 transition-transform duration-400 group-hover:translate-x-4 md:group-hover:translate-x-8">
-                <h2 className="portfolio-item-title text-[clamp(2.2rem,4.5vw,4.8rem)] leading-none tracking-[-0.03em] font-normal m-0">
+                <h2 className="portfolio-item-title text-[clamp(1.4rem,3.5vw,3.2rem)] leading-none tracking-[-0.03em] font-normal m-0">
                   {project.title}
                 </h2>
                 <div className="portfolio-item-arrow-wrap transition-transform duration-400 group-hover:-translate-x-8 md:group-hover:-translate-x-16">
