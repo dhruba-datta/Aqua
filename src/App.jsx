@@ -70,7 +70,7 @@ export default function App() {
       >
         <Header onMenuOpen={handleMenuOpen} />
 
-        <main className="noise-bg">
+        <main className="noise-bg bg-orange-accent z-0" id="main-content">
           <Hero />
           <Services />
           <Statement />

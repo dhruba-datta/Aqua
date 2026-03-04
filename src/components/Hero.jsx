@@ -17,7 +17,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-orange-accent text-black" ref={heroRef} id="hero">
+    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden text-black" ref={heroRef} id="hero">
 
       <div className="relative z-10 w-full px-6 sm:px-10 lg:px-16 mx-auto">
         <h1 className="flex flex-col items-center justify-center text-center">
