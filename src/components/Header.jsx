@@ -28,7 +28,11 @@ export default function Header({ onMenuOpen, lenis }) {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? "py-4" : "py-8"}`}
     >
       <div
-        className={`flex items-center justify-between mx-auto px-6 sm:px-10 lg:px-16 transition-all duration-500 max-w-[1600px] ${scrolled ? "bg-black/80 backdrop-blur-2xl rounded-full py-4" : ""}`}
+        className={`flex items-center justify-between mx-auto transition-all duration-500 max-w-[1600px] ${
+          scrolled
+            ? "bg-black/80 backdrop-blur-2xl rounded-full py-4 px-6 sm:px-10 w-[calc(100%-2rem)] sm:w-[calc(100%-4rem)] lg:w-[calc(100%-6rem)]"
+            : "px-6 sm:px-10 lg:px-16 w-full"
+        }`}
       >
         <div className="flex-none">
           <span

@@ -1,8 +1,8 @@
 const menuLinks = [
-  { label: "Index", href: "#" },
+  { label: "Index", href: "#hero" },
   { label: "Services", href: "#services" },
+  { label: "Featured Work", href: "#portfolio" },
   { label: "Testimonials", href: "#testimonials" },
-  { label: "Work", href: "#portfolio" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -50,9 +50,10 @@ export default function SlideOutMenu({ isOpen, onClose, lenis }) {
                 <a 
                   href={link.href} 
                   onClick={(e) => handleLinkClick(e, link.href)}
-                  className="text-[1.65rem] font-normal text-white/90 hover:text-white transition-colors duration-300 inline-block hover-underline-slide"
+                  className="text-[1.65rem] font-light text-white/60 hover:text-white transition-colors duration-300 relative group inline-block"
                 >
-                  {link.label}
+                  <span className="relative z-10">{link.label}</span>
+                  <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-white transition-all duration-500 group-hover:w-full"></span>
                 </a>
               </li>
             ))}
@@ -92,9 +93,10 @@ export default function SlideOutMenu({ isOpen, onClose, lenis }) {
                 <a 
                   href={link.href} 
                   onClick={(e) => handleLinkClick(e, link.href)}
-                  className="text-[3.5rem] font-light text-white/40 hover:text-white hover:italic transition-all duration-300 relative group inline-block"
+                  className="text-[3.5rem] font-light text-white/50 hover:text-white transition-all duration-300 relative group inline-block"
                 >
                   <span className="relative z-10">{link.label}</span>
+                  <span className="absolute bottom-2 left-0 w-0 h-[2px] bg-white transition-all duration-500 group-hover:w-full"></span>
                 </a>
               </li>
             ))}
