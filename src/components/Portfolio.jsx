@@ -65,7 +65,7 @@ export default function Portfolio() {
 
   return (
     <section className="relative overflow-hidden bg-dark py-24 md:py-32" id="portfolio" ref={sectionRef}>
-      <div className="mx-auto px-6 sm:px-10 lg:px-16 max-w-[1440px] mb-16">
+      <div className="mx-auto px-6 sm:px-10 lg:px-16 mb-16">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
           <h2 className="text-fluid-h2 font-bold tracking-tight">Featured Work</h2>
           <div className="flex flex-wrap gap-3">

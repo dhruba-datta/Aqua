@@ -39,7 +39,7 @@ export default function Testimonials() {
 
   return (
     <section className="py-24 md:py-32 bg-dark text-white" id="testimonials">
-      <div className="mx-auto px-6 sm:px-10 lg:px-16 max-w-[1440px]">
+      <div className="mx-auto px-6 sm:px-10 lg:px-16">
         <div className="flex flex-col items-center">
           <div className="relative w-full max-w-4xl min-h-[300px]">
             {testimonials.map((t, i) => (

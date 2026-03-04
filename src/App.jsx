@@ -44,20 +44,23 @@ export default function App() {
 
   return (
     <div className={`transition-opacity duration-1000 ${loaded ? 'opacity-100' : 'opacity-0'}`}>
-      <Header onMenuOpen={() => setMenuOpen(true)} />
       <SlideOutMenu isOpen={menuOpen} onClose={() => setMenuOpen(false)} />
+      
+      <div className={`content-wrapper ${menuOpen ? 'content-wrapper--menu-open' : ''}`}>
+        <Header onMenuOpen={() => setMenuOpen(true)} />
 
-      <main className="noise-bg">
-        <Hero />
-        <Services />
-        <Statement />
-        <Portfolio />
-        <Marquee />
-        <Testimonials />
-        <Contact />
-      </main>
+        <main className="noise-bg">
+          <Hero />
+          <Services />
+          <Statement />
+          <Portfolio />
+          <Marquee />
+          <Testimonials />
+          <Contact />
+        </main>
 
-      <Footer />
+        <Footer />
+      </div>
     </div>
   );
 }

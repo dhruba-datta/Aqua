@@ -1,43 +1,45 @@
 const menuLinks = [
   { label: "Index", href: "#" },
   { label: "Services", href: "#services" },
-  { label: "Work", href: "#portfolio" },
   { label: "Testimonials", href: "#testimonials" },
-  { label: "Contact", href: "#contact" },
+  { label: "Work", href: "#portfolio" },
 ];
 
 export default function SlideOutMenu({ isOpen, onClose }) {
   return (
-    <>
-      <div
-        className={`fixed inset-0 bg-black/60 z-[999] transition-opacity duration-500 ${isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
+    <div className={`fixed inset-0 z-50 flex items-center justify-end px-10 md:px-32 transition-opacity duration-500 ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
+      
+      {/* Floating Close Button */}
+      <button 
         onClick={onClose}
-      />
-      <nav className={`fixed top-0 right-0 h-screen w-full max-w-[500px] bg-dark z-[1000] flex flex-col justify-center px-10 md:px-20 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${isOpen ? "translate-x-0" : "translate-x-full"}`}>
-        <button 
-          className="absolute top-1/2 -left-8 -translate-y-1/2 w-16 h-16 bg-white rounded-full flex items-center justify-center text-black z-10 shadow-2xl hover:scale-110 transition-transform" 
-          onClick={onClose} 
-          aria-label="Close menu"
-        >
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
-            <line x1="18" y1="6" x2="6" y2="18" />
-            <line x1="6" y1="6" x2="18" y2="18" />
-          </svg>
-        </button>
-        <ul className="flex flex-col gap-4">
-          {menuLinks.map((link) => (
-            <li key={link.label}>
+        className={`absolute left-[60%] top-1/2 w-12 h-12 md:w-16 md:h-16 bg-white rounded-full flex items-center justify-center text-black shadow-2xl transition-all duration-700 delay-150 ${isOpen ? 'opacity-100 -translate-x-1/2 -translate-y-1/2 scale-100' : 'opacity-0 -translate-x-1/2 -translate-y-1/2 scale-50'}`}
+        aria-label="Close menu"
+      >
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </button>
+
+      <nav className="text-right">
+        <ul className="flex flex-col gap-6 md:gap-8">
+          {menuLinks.map((link, i) => (
+            <li 
+              key={link.label}
+              className={`transition-all duration-700 ease-out delay-[${200 + i * 100}ms] ${isOpen ? 'translate-x-0 opacity-100' : 'translate-x-20 opacity-0'}`}
+            >
               <a 
                 href={link.href} 
-                onClick={onClose} 
-                className="text-fluid-h2 font-semibold text-white hover:underline underline-offset-8 hover:pl-4 transition-all duration-300"
+                onClick={onClose}
+                className="text-[2.5rem] md:text-[5rem] font-light text-white/40 hover:text-white transition-colors duration-300 relative group inline-block"
               >
-                {link.label}
+                <span className="relative z-10">{link.label}</span>
+                <span className="absolute bottom-2 left-0 w-0 h-[2px] bg-white transition-all duration-500 group-hover:w-full"></span>
               </a>
             </li>
           ))}
         </ul>
       </nav>
-    </>
+    </div>
   );
 }

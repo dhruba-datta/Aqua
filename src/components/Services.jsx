@@ -87,7 +87,7 @@ export default function Services() {
 
   return (
     <section className="py-24 md:py-32 bg-dark text-white" id="services" ref={sectionRef}>
-      <div className="mx-auto px-6 sm:px-10 lg:px-16 max-w-[1440px]">
+      <div className="mx-auto px-6 sm:px-10 lg:px-16">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-10 mb-16 md:mb-24">
           <h2 className="text-fluid-h2 max-w-2xl leading-tight">
             From strategy to spotlight, we make brands <span className="text-accent italic">shine</span>
@@ -104,7 +104,7 @@ export default function Services() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service) => (
-            <div key={service.title} className="service-card opacity-0 translate-y-10 transition-all duration-700 ease-out bg-white/5 border border-white/10 rounded-2xl p-10 hover:border-accent hover:-translate-y-2 transition-transform cursor-pointer group">
+            <div key={service.title} className="service-card opacity-0 translate-y-10 transition-transform duration-700 ease-out bg-white/5 border border-white/10 rounded-2xl p-10 hover:border-accent hover:-translate-y-2 cursor-pointer group">
               <div className="w-12 h-12 mb-6 text-accent group-hover:scale-110 transition-transform">{service.icon}</div>
               <h3 className="text-2xl font-semibold tracking-tight">{service.title}</h3>
             </div>
