@@ -14,21 +14,24 @@ import Footer from './components/Footer';
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [loaded, setLoaded] = useState(false);
+  const [lenis, setLenis] = useState(null);
+  const [scrollOrigin, setScrollOrigin] = useState("left center");
 
   // Smooth scroll with Lenis
   useEffect(() => {
-    const lenis = new Lenis({
+    const l = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
     });
+    setLenis(l);
 
     function raf(time) {
-      lenis.raf(time);
+      l.raf(time);
       requestAnimationFrame(raf);
     }
     requestAnimationFrame(raf);
 
-    return () => lenis.destroy();
+    return () => l.destroy();
   }, []);
 
   // Page load animation
@@ -36,18 +39,36 @@ export default function App() {
     setTimeout(() => setLoaded(true), 100);
   }, []);
 
-  // Lock body scroll when menu is open
+  // Handle scroll lock accurately with Lenis
   useEffect(() => {
-    document.body.style.overflow = menuOpen ? 'hidden' : '';
+    if (lenis) {
+      if (menuOpen) {
+        lenis.stop();
+        document.body.style.overflow = 'hidden';
+      } else {
+        lenis.start();
+        document.body.style.overflow = '';
+      }
+    } else {
+      document.body.style.overflow = menuOpen ? 'hidden' : '';
+    }
     return () => { document.body.style.overflow = ''; };
-  }, [menuOpen]);
+  }, [menuOpen, lenis]);
+
+  const handleMenuOpen = () => {
+    setScrollOrigin(`0px ${window.scrollY + window.innerHeight / 2}px`);
+    setMenuOpen(true);
+  };
 
   return (
     <div className={`transition-opacity duration-1000 ${loaded ? 'opacity-100' : 'opacity-0'}`}>
       <SlideOutMenu isOpen={menuOpen} onClose={() => setMenuOpen(false)} />
       
-      <div className={`content-wrapper ${menuOpen ? 'content-wrapper--menu-open' : ''}`}>
-        <Header onMenuOpen={() => setMenuOpen(true)} />
+      <div 
+        className={`content-wrapper ${menuOpen ? 'content-wrapper--menu-open' : ''}`}
+        style={{ transformOrigin: scrollOrigin }}
+      >
+        <Header onMenuOpen={handleMenuOpen} />
 
         <main className="noise-bg">
           <Hero />

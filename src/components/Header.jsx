@@ -22,7 +22,7 @@ export default function Header({ onMenuOpen }) {
         <div className="flex items-center gap-6">
           <a
             href="#contact"
-            className={`hidden sm:inline-flex items-center px-5 py-2 border-[1px] text-[0.7rem] font-bold uppercase tracking-widest rounded-full transition-colors duration-500 ${
+            className={`hidden sm:inline-flex items-center px-5 py-2 border text-[0.7rem] font-bold uppercase tracking-widest rounded-full transition-colors duration-500 ${
               scrolled
                 ? 'border-white text-white hover:bg-white hover:text-black'
                 : 'border-black/50 text-black hover:bg-black hover:text-white'
