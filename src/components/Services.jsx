@@ -104,12 +104,12 @@ export default function Services({ lenis }) {
   };
 
   return (
-    <section className="pt-32 pb-24 md:pt-[25vh] md:pb-32 overflow-hidden text-black" id="services">
+    <section className="pt-24 pb-16 md:pt-[25vh] md:pb-32 overflow-hidden text-black" id="services">
       <div className="w-full">
         
         {/* Header Section */}
-        <div className="mx-auto px-6 sm:px-10 lg:px-16 flex flex-col md:flex-row md:items-end justify-between gap-10 mb-12 md:mb-16">
-          <h2 className="text-[2.25rem] md:text-[3.25rem] lg:text-[4rem] font-medium max-w-4xl leading-[1.05] tracking-tight">
+        <div className="mx-auto px-4 sm:px-10 lg:px-16 flex flex-col md:flex-row md:items-end justify-between gap-6 md:gap-10 mb-10 md:mb-16">
+          <h2 className="text-[1.75rem] sm:text-[2.25rem] md:text-[3.25rem] lg:text-[4rem] font-medium max-w-4xl leading-[1.05] tracking-tight">
             From strategy to spotlight, we <br className="hidden md:block" /> make brands shine
           </h2>
           <a 
@@ -125,13 +125,13 @@ export default function Services({ lenis }) {
         {/* Horizontal Scrolling Cards */}
         <div 
           ref={scrollRef}
-          className="flex overflow-x-hidden gap-[10px] pb-12 px-6 sm:px-10 lg:px-16 whitespace-nowrap"
+          className="flex overflow-x-hidden gap-[10px] pb-8 md:pb-12 px-4 sm:px-10 lg:px-16 whitespace-nowrap"
         >
           {/* Duplicate the services twice for a seamless infinite loop */}
           {[...services, ...services].map((service, index) => (
             <div 
               key={`${service.title}-${index}`} 
-              className="relative flex-none w-[85vw] md:w-[45vw] lg:w-[400px] xl:w-[437.5px] h-[493.35px] rounded-[1.25rem] overflow-hidden group flex flex-col justify-between"
+              className="relative flex-none w-[78vw] sm:w-[85vw] md:w-[45vw] lg:w-[400px] xl:w-[437.5px] h-[380px] md:h-[493.35px] rounded-[1.25rem] overflow-hidden group flex flex-col justify-between"
             >
               {/* Background Image */}
               <div 

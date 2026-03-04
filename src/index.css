@@ -74,7 +74,7 @@
   }
 
   .text-fluid-hero {
-    font-size: clamp(4rem, 13vw, 16rem);
+    font-size: clamp(3rem, 13vw, 16rem);
   }
 
   .text-fluid-h1 {
@@ -374,5 +374,26 @@
       width: 40px;
       height: 40px;
     }
+
+    .testimonial_slider .slides {
+      min-height: 380px;
+    }
+
+    .testimonial_slider blockquote {
+      padding: 0 16px;
+    }
+
+    .testimonial_slider p {
+      font-size: clamp(1.1rem, 4vw, 1.8rem);
+    }
+  }
+
+  /* Hide scrollbar for filter row */
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
   }
 }

@@ -123,13 +123,13 @@ export default function Portfolio() {
       ref={sectionRef}
       onMouseMove={handleMouseMove}
     >
-      <div className="w-full px-12 sm:px-24 lg:px-32">
+      <div className="w-full px-6 sm:px-12 lg:px-32">
         {/* Header: Label and Filters Flex Layout */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-12 w-full">
           <p className="uppercase text-[18px] md:text-[22px] font-bold tracking-widest text-black m-0 shrink-0">
             Featured Work
           </p>
-          <div className="hidden md:flex flex-wrap gap-6">
+          <div className="flex overflow-x-auto gap-4 md:gap-6 pb-2 md:pb-0 -mx-1 px-1 no-scrollbar">
             {filters.map((f) => (
               <a
                 key={f.value}
@@ -158,7 +158,7 @@ export default function Portfolio() {
               onMouseEnter={() => handleItemEnter(project)}
               onMouseLeave={handleItemLeave}
             >
-              <div className="portfolio-item-inner flex items-center justify-between py-5 md:py-6 px-4 md:px-8 transition-transform duration-400 group-hover:translate-x-4 md:group-hover:translate-x-8">
+              <div className="portfolio-item-inner flex items-center justify-between py-4 md:py-6 px-2 md:px-8 transition-transform duration-400 group-hover:translate-x-4 md:group-hover:translate-x-8">
                 <h2 className="portfolio-item-title text-[clamp(1.4rem,3.5vw,3.2rem)] leading-none tracking-[-0.03em] font-normal m-0">
                   {project.title}
                 </h2>
@@ -181,7 +181,7 @@ export default function Portfolio() {
       </div>
 
       {/* Floating cursor-follow image */}
-      <div className="portfolio-hover-image absolute top-0 left-0 w-[400px] h-[280px] pointer-events-none z-10 opacity-0 scale-90 overflow-hidden rounded-xl will-change-[transform,opacity] -ml-[200px] -mt-[140px]" ref={imageRef}>
+      <div className="portfolio-hover-image hidden md:block absolute top-0 left-0 w-[400px] h-[280px] pointer-events-none z-10 opacity-0 scale-90 overflow-hidden rounded-xl will-change-[transform,opacity] -ml-[200px] -mt-[140px]" ref={imageRef}>
         <img src="" alt="" className="w-full h-full object-cover" />
       </div>
     </section>

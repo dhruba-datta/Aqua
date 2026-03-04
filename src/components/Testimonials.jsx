@@ -76,8 +76,8 @@ export default function Testimonials() {
   }, [current]);
 
   return (
-    <section className="testimonial-section py-32 md:py-48" id="testimonials">
-      <div className="w-full px-12 sm:px-24 lg:px-32 relative">
+    <section className="testimonial-section py-20 md:py-48" id="testimonials">
+      <div className="w-full px-4 sm:px-12 lg:px-32 relative">
         <div className="testimonial_slider" ref={containerRef}>
           <div className="slides">
             {testimonials.map((testimonial, index) => (

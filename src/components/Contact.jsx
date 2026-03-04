@@ -21,11 +21,11 @@ export default function Contact() {
 
   return (
     <section className="py-24 md:py-32 overflow-hidden" id="contact-section" ref={sectionRef}>
-      <div className="mx-auto px-6 sm:px-10 lg:px-16 max-w-[1600px]">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-20 mb-32 opacity-0 translate-y-10 [.is-visible_&]:opacity-100 [.is-visible_&]:translate-y-0 transition-all duration-1000">
+      <div className="mx-auto px-4 sm:px-10 lg:px-16 max-w-[1600px]">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 mb-20 md:mb-32 opacity-0 translate-y-10 [.is-visible_&]:opacity-100 [.is-visible_&]:translate-y-0 transition-all duration-1000">
           <div className="flex flex-col gap-6">
             <span className="text-accent text-sm font-bold uppercase tracking-widest">Say Hello</span>
-            <a href="mailto:hello@signal.agency" className="text-4xl md:text-5xl lg:text-6xl font-semibold hover:text-accent transition-colors">
+            <a href="mailto:hello@signal.agency" className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold hover:text-accent transition-colors break-all">
               hello@signal.agency
             </a>
           </div>

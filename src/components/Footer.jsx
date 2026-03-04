@@ -53,28 +53,28 @@ export default function Footer() {
 
   return (
     <footer 
-      className="footer-section pt-32 pb-12 bg-[#f5f5f5] text-black relative overflow-hidden min-h-[90vh] flex flex-col justify-between noise-bg" 
+      className="footer-section pt-20 sm:pt-32 pb-8 sm:pb-12 bg-[#f5f5f5] text-black relative overflow-hidden min-h-[70vh] sm:min-h-[90vh] flex flex-col justify-between noise-bg" 
       ref={footerRef} 
       id="footer"
       style={{ backgroundColor: "#f5f5f5" }}
     >
-      <div className="mx-auto px-12 sm:px-24 lg:px-32 w-full max-w-[1600px] relative z-10 flex-1 flex flex-col">
+      <div className="mx-auto px-6 sm:px-12 lg:px-32 w-full max-w-[1600px] relative z-10 flex-1 flex flex-col">
         
         {/* Top Section */}
-        <div className="max-w-5xl mb-24 md:mb-auto mt-8" id="contact">
+        <div className="max-w-5xl mb-16 md:mb-auto mt-4 md:mt-8" id="contact">
           <div className="flex items-center gap-3 mb-8">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="opacity-50">
               <path d="M12 2v20M2 12h20" />
             </svg>
             <span className="text-[13px] font-bold tracking-widest uppercase opacity-50">Contact Us</span>
           </div>
-          <h2 className="text-[3rem] md:text-[4rem] lg:text-[5rem] font-medium leading-[1.05] tracking-tight">
+          <h2 className="text-[2rem] sm:text-[3rem] md:text-[4rem] lg:text-[5rem] font-medium leading-[1.05] tracking-tight">
             Interested in working together, <span className="text-black/40">trying out the platform or simply learning more?</span>
           </h2>
         </div>
 
         {/* Middle Section */}
-        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-16 mt-24">
+        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-10 md:gap-16 mt-16 md:mt-24">
           <div>
             <p className="text-[13px] font-bold tracking-widest uppercase opacity-40 mb-4">Contact us at:</p>
             <a href="mailto:hello@signal.agency" className="text-2xl md:text-3xl font-medium flex items-center gap-3 transition-all group">
@@ -96,8 +96,8 @@ export default function Footer() {
       </div>
 
       {/* Bottom Section (Logo and Copyright) */}
-      <div className="w-full mt-24 border-t border-black/10 pt-10">
-        <div className="mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-[12px] font-bold uppercase tracking-widest opacity-40 px-12 sm:px-24 lg:px-32 w-full max-w-[1600px]">
+      <div className="w-full mt-16 md:mt-24 border-t border-black/10 pt-8 md:pt-10">
+        <div className="mx-auto flex flex-col md:flex-row justify-between items-center gap-4 md:gap-6 text-[11px] sm:text-[12px] font-bold uppercase tracking-widest opacity-40 px-6 sm:px-12 lg:px-32 w-full max-w-[1600px]">
           <span>© {new Date().getFullYear()} Signal. All rights reserved.</span>
           <div className="flex gap-10">
             <a href="#" className="hover:text-black transition-colors">Privacy Policy</a>
