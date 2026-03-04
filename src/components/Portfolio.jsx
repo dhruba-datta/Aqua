@@ -1,115 +1,188 @@
-import { useEffect, useRef, useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const projects = [
-  { title: 'Crystal Vibes', category: 'Art & Culture', image: '/images/crystal-vibes.png' },
-  { title: 'Into the Heat', category: 'Concepts', image: '/images/into-the-heat.png' },
-  { title: 'Radiant', category: 'eCommerce', image: '/images/radiant.png' },
-  { title: 'Framework', category: 'Websites', image: '/images/framework.png' },
-  { title: 'Balanced', category: 'Art & Culture', image: '/images/balanced.png' },
+  {
+    title: 'Crystal Vibes',
+    categories: ['art-culture'],
+    image: 'https://themenectar.com/salient/signal/wp-content/uploads/sites/45/2025/10/karsten-winegeart-Dh5Re5w_fv8-unsplash.jpg',
+    href: '#',
+  },
+  {
+    title: 'Into the Heat',
+    categories: ['concepts'],
+    image: 'https://themenectar.com/salient/signal/wp-content/uploads/sites/45/2025/08/andrei-castanha-fuTjGnN8rNs-unsplash.jpg',
+    href: '#',
+  },
+  {
+    title: 'Radiant',
+    categories: ['art-culture', 'concepts'],
+    image: 'https://themenectar.com/salient/signal/wp-content/uploads/sites/45/2025/06/christian-agbede-aohV_aatqQw-unsplash-1-1.jpg',
+    href: '#',
+  },
+  {
+    title: 'Framework',
+    categories: ['concepts', 'websites'],
+    image: 'https://themenectar.com/salient/signal/wp-content/uploads/sites/45/2025/04/yordan-stoyanov-IKy3Rqo3SBx4-unsplash-1.jpg',
+    href: '#',
+  },
+  {
+    title: 'Balanced',
+    categories: ['art-culture', 'websites'],
+    image: 'https://themenectar.com/salient/signal/wp-content/uploads/sites/45/2025/02/braxton-apana-2Y4KrTv1kvU-unsplash-1.jpg',
+    href: '#',
+  },
 ];
 
-const filters = ['All', 'Art & Culture', 'Concepts', 'eCommerce', 'Websites'];
+const filters = [
+  { label: 'All', value: '-1' },
+  { label: 'Art & Culture', value: 'art-culture' },
+  { label: 'Concepts', value: 'concepts' },
+  { label: 'eCommerce', value: 'ecommerce' },
+  { label: 'Websites', value: 'websites' },
+];
 
 export default function Portfolio() {
-  const [activeFilter, setActiveFilter] = useState('All');
-  const trackRef = useRef(null);
+  const [activeFilter, setActiveFilter] = useState('-1');
   const sectionRef = useRef(null);
+  const imageRef = useRef(null);
+  const mousePos = useRef({ x: 0, y: 0 });
+  const activeItemRef = useRef(null);
 
-  const filtered = activeFilter === 'All'
-    ? projects
-    : projects.filter((p) => p.category === activeFilter);
+  const filtered =
+    activeFilter === '-1'
+      ? projects
+      : projects.filter((p) => p.categories.includes(activeFilter));
 
+  // Floating image follow effect
   useEffect(() => {
-    const track = trackRef.current;
+    const image = imageRef.current;
+    if (!image) return;
+
+    let rafId;
+    const follow = () => {
+      gsap.to(image, {
+        x: mousePos.current.x,
+        y: mousePos.current.y,
+        duration: 0.4,
+        ease: 'power3.out',
+      });
+      rafId = requestAnimationFrame(follow);
+    };
+    rafId = requestAnimationFrame(follow);
+
+    return () => cancelAnimationFrame(rafId);
+  }, []);
+
+  const handleMouseMove = (e) => {
     const section = sectionRef.current;
-    if (!track || !section) return;
-
-    const scrollWidth = track.scrollWidth - window.innerWidth;
-
-    const trigger = ScrollTrigger.create({
-      trigger: section,
-      start: 'top top',
-      end: () => `+=${scrollWidth}`,
-      pin: true,
-      scrub: 1,
-      invalidateOnRefresh: true,
-      animation: gsap.to(track, {
-        x: -scrollWidth,
-        ease: 'none',
-      }),
-    });
-
-    return () => trigger.kill();
-  }, [filtered]);
-
-  const handleMouseMove = (e, card) => {
-    const rect = card.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width - 0.5) * 20;
-    const y = ((e.clientY - rect.top) / rect.height - 0.5) * 20;
-    const img = card.querySelector('.project-img');
-    if (img) {
-      img.style.transform = `translate(${x}px, ${y}px) scale(1.05)`;
-    }
+    if (!section) return;
+    const rect = section.getBoundingClientRect();
+    mousePos.current = {
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top,
+    };
   };
 
-  const handleMouseLeave = (card) => {
-    const img = card.querySelector('.project-img');
-    if (img) {
-      img.style.transform = 'translate(0, 0) scale(1)';
-    }
+  const handleItemEnter = (project) => {
+    activeItemRef.current = project;
+    const image = imageRef.current;
+    if (!image) return;
+
+    const img = image.querySelector('img');
+    if (img) img.src = project.image;
+
+    gsap.to(image, {
+      opacity: 1,
+      scale: 1,
+      duration: 0.3,
+      ease: 'power2.out',
+    });
+  };
+
+  const handleItemLeave = () => {
+    activeItemRef.current = null;
+    const image = imageRef.current;
+    if (!image) return;
+
+    gsap.to(image, {
+      opacity: 0,
+      scale: 0.8,
+      duration: 0.3,
+      ease: 'power2.out',
+    });
   };
 
   return (
-    <section className="relative overflow-hidden py-24 md:py-32" id="portfolio" ref={sectionRef}>
-      <div className="mx-auto px-6 sm:px-10 lg:px-16 mb-16">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
-          <h2 className="text-fluid-h2 font-bold tracking-tight">Featured Work</h2>
-          <div className="flex flex-wrap gap-3">
+    <section
+      className="relative py-24 md:py-32 w-full"
+      id="portfolio"
+      ref={sectionRef}
+      onMouseMove={handleMouseMove}
+    >
+      <div className="w-full px-4 sm:px-10 lg:px-16">
+        {/* Header: Label and Filters Flex Layout */}
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-12 w-full">
+          <p className="uppercase text-[14px] md:text-[16px] font-bold tracking-widest text-black m-0 shrink-0">
+            Featured Work
+          </p>
+          <div className="hidden md:flex flex-wrap gap-6">
             {filters.map((f) => (
-              <button
-                key={f}
-                className={`px-5 py-2 rounded-full text-sm font-semibold border transition-all ${
-                  activeFilter === f 
-                    ? 'bg-black text-white border-black' 
-                    : 'bg-transparent text-black border-black/20 hover:border-black'
+              <a
+                key={f.value}
+                href="#"
+                className={`text-[12px] uppercase font-bold tracking-wider transition-colors ${
+                  activeFilter === f.value ? 'text-black' : 'text-black/30 hover:text-black'
                 }`}
-                onClick={() => setActiveFilter(f)}
+                onClick={(e) => {
+                  e.preventDefault();
+                  setActiveFilter(f.value);
+                }}
               >
-                {f}
-              </button>
+                {f.label}
+              </a>
             ))}
           </div>
         </div>
-      </div>
 
-      <div className="w-full">
-        <div className="flex flex-nowrap gap-8 px-6 sm:px-10 lg:px-16" ref={trackRef}>
+        {/* Vertical List */}
+        <div className="portfolio-list border-t border-black/10">
           {filtered.map((project) => (
-            <article
+            <a
               key={project.title}
-              className="relative flex-none w-[85vw] md:w-[45vw] lg:w-[35vw] group cursor-pointer"
-              onMouseMove={(e) => handleMouseMove(e, e.currentTarget)}
-              onMouseLeave={(e) => handleMouseLeave(e.currentTarget)}
+              href={project.href}
+              className="portfolio-item group block border-b border-black/10 transition-colors duration-400 hover:bg-[#121213] hover:text-[#F0EAE6] text-black"
+              onMouseEnter={() => handleItemEnter(project)}
+              onMouseLeave={handleItemLeave}
             >
-              <div className="aspect-4/5 overflow-hidden rounded-2xl bg-white/5 mb-6">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="project-img w-full h-full object-cover transition-transform duration-500"
-                  loading="lazy"
-                />
+              <div className="portfolio-item-inner flex items-center justify-between py-5 md:py-6 px-4 md:px-8 transition-transform duration-400 group-hover:translate-x-4 md:group-hover:translate-x-8">
+                <h2 className="portfolio-item-title text-[clamp(2.2rem,4.5vw,4.8rem)] leading-none tracking-[-0.03em] font-normal m-0">
+                  {project.title}
+                </h2>
+                <div className="portfolio-item-arrow-wrap transition-transform duration-400 group-hover:-translate-x-8 md:group-hover:-translate-x-16">
+                  <svg
+                    className="portfolio-item-arrow w-[28px] h-[28px] md:w-[36px] md:h-[36px] shrink-0 transition-transform duration-300 group-hover:scale-110"
+                    stroke="currentColor"
+                    fill="currentColor"
+                    strokeWidth="0"
+                    viewBox="60 58 140 140"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M198,64V168a6,6,0,0,1-12,0V78.48L68.24,196.24a6,6,0,0,1-8.48-8.48L177.52,70H88a6,6,0,0,1,0-12H192A6,6,0,0,1,198,64Z" />
+                  </svg>
+                </div>
               </div>
-              <div className="flex flex-col gap-2">
-                <span className="text-accent text-sm font-bold uppercase tracking-widest">{project.category}</span>
-                <h3 className="text-3xl font-semibold tracking-tight group-hover:text-accent transition-colors">{project.title}</h3>
-              </div>
-            </article>
+            </a>
           ))}
         </div>
+      </div>
+
+      {/* Floating cursor-follow image */}
+      <div className="portfolio-hover-image absolute top-0 left-0 w-[400px] h-[280px] pointer-events-none z-10 opacity-0 scale-90 overflow-hidden rounded-xl will-change-[transform,opacity] -ml-[200px] -mt-[140px]" ref={imageRef}>
+        <img src="" alt="" className="w-full h-full object-cover" />
       </div>
     </section>
   );
