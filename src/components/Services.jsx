@@ -38,7 +38,7 @@ const services = [
   }
 ];
 
-export default function Services() {
+export default function Services({ lenis }) {
   const scrollRef = useRef(null);
 
   useEffect(() => {
@@ -91,6 +91,18 @@ export default function Services() {
     };
   }, []);
 
+  const handleScrollToContact = (e) => {
+    e.preventDefault();
+    if (lenis) {
+      lenis.scrollTo("#contact", {
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      });
+    } else {
+      document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section className="pt-32 pb-24 md:pt-[25vh] md:pb-32 overflow-hidden text-black" id="services">
       <div className="w-full">
@@ -102,9 +114,11 @@ export default function Services() {
           </h2>
           <a 
             href="#contact" 
-            className="text-lg md:text-xl font-medium shrink-0 mb-2 md:mb-4 hover-underline-slide"
+            onClick={handleScrollToContact}
+            className="text-[1.25rem] md:text-[1.5rem] font-medium text-black/50 hover:text-black transition-colors duration-300 relative group inline-block shrink-0 mb-2 md:mb-4"
           >
-            Start a Project
+            <span className="relative z-10">Start a Project</span>
+            <span className="absolute bottom-0 md:bottom-[2px] left-0 w-0 h-[2px] bg-black transition-all duration-500 group-hover:w-full"></span>
           </a>
         </div>
 

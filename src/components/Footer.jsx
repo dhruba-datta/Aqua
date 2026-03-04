@@ -77,7 +77,7 @@ export default function Footer() {
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-16 mt-24">
           <div>
             <p className="text-[13px] font-bold tracking-widest uppercase opacity-40 mb-4">Contact us at:</p>
-            <a href="mailto:hello@signal.agency" className="text-2xl md:text-3xl font-medium flex items-center gap-3 hover:italic transition-all group">
+            <a href="mailto:hello@signal.agency" className="text-2xl md:text-3xl font-medium flex items-center gap-3 transition-all group">
               hello@signal.agency
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">
                 <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -87,7 +87,7 @@ export default function Footer() {
 
           <div className="flex flex-wrap gap-x-10 gap-y-4 text-[1.25rem] md:text-[1.5rem] lg:text-[2rem] font-medium tracking-tight">
             {['Instagram', 'LinkedIn', 'Facebook', 'Twitter'].map((link) => (
-              <a key={link} href="#" className="hover:italic transition-all opacity-70 hover:opacity-100">
+              <a key={link} href="#" className="transition-all opacity-70 hover:opacity-100">
                 {link}
               </a>
             ))}

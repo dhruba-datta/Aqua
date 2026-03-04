@@ -70,7 +70,7 @@ export default function App() {
 
         <main className="noise-bg bg-orange-accent z-0" id="main-content">
           <Hero />
-          <Services />
+          <Services lenis={lenis} />
           <Statement />
           <Portfolio />
           <Testimonials />

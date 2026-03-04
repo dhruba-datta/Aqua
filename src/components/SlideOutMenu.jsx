@@ -46,10 +46,9 @@ export default function SlideOutMenu({ isOpen, onClose, lenis }) {
                <a 
                 href={link.href} 
                 onClick={(e) => handleLinkClick(e, link.href)}
-                className="text-[2.5rem] md:text-[3.5rem] font-light text-white/40 hover:text-white transition-colors duration-300 relative group inline-block"
+                className="text-[2.5rem] md:text-[3.5rem] font-light text-white/40 hover:text-white hover:italic transition-all duration-300 relative group inline-block"
               >
                 <span className="relative z-10">{link.label}</span>
-                <span className="absolute bottom-2 left-0 w-0 h-[2px] bg-white transition-all duration-500 group-hover:w-full"></span>
               </a>
             </li>
           ))}
