@@ -62,7 +62,7 @@ export default function App() {
 
   return (
     <div className={`transition-opacity duration-1000 ${loaded ? 'opacity-100' : 'opacity-0'}`}>
-      <SlideOutMenu isOpen={menuOpen} onClose={() => setMenuOpen(false)} />
+      <SlideOutMenu isOpen={menuOpen} onClose={() => setMenuOpen(false)} lenis={lenis} />
       
       <div 
         className={`content-wrapper ${menuOpen ? 'content-wrapper--menu-open' : ''}`}

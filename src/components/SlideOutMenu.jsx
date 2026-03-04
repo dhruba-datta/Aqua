@@ -5,7 +5,21 @@ const menuLinks = [
   { label: "Work", href: "#portfolio" },
 ];
 
-export default function SlideOutMenu({ isOpen, onClose }) {
+export default function SlideOutMenu({ isOpen, onClose, lenis }) {
+  const handleLinkClick = (e, href) => {
+    e.preventDefault();
+    onClose();
+    
+    // Wait for the menu closing animation (700ms) before scrolling
+    setTimeout(() => {
+      if (lenis) {
+        lenis.scrollTo(href, { duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
+      } else {
+        document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 700);
+  };
+
   return (
     <div className={`fixed inset-0 z-50 flex items-center justify-end px-10 md:px-32 transition-opacity duration-500 ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
       
@@ -30,7 +44,7 @@ export default function SlideOutMenu({ isOpen, onClose }) {
             >
                <a 
                 href={link.href} 
-                onClick={onClose}
+                onClick={(e) => handleLinkClick(e, link.href)}
                 className="text-[2.5rem] md:text-[3.5rem] font-light text-white/40 hover:text-white transition-colors duration-300 relative group inline-block"
               >
                 <span className="relative z-10">{link.label}</span>
