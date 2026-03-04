@@ -58,7 +58,7 @@ export default function Services() {
         duration: 1,
         ease: "power2.inOut"
       }),
-      toggleActions: "play reverse play reverse", // Play forward when entering down, reverse when leaving up
+      toggleActions: "play none none reverse", // Play forward into white, reverse back to orange only when going up to Hero
     });
 
     // Calculate total width of one set of items
@@ -92,7 +92,7 @@ export default function Services() {
   }, []);
 
   return (
-    <section className="py-24 md:py-32 overflow-hidden" id="services">
+    <section className="pt-32 pb-24 md:pt-[25vh] md:pb-32 overflow-hidden text-black" id="services">
       <div className="w-full">
         
         {/* Header Section */}
@@ -102,7 +102,7 @@ export default function Services() {
           </h2>
           <a 
             href="#contact" 
-            className="text-lg md:text-xl font-medium pb-1 border-b-[1.5px] border-black hover:text-gray-600 hover:border-gray-600 transition-colors shrink-0 mb-2 md:mb-4"
+            className="text-lg md:text-xl font-medium shrink-0 mb-2 md:mb-4 hover-underline-slide"
           >
             Start a Project
           </a>

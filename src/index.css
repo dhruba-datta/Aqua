@@ -97,4 +97,88 @@
       border-radius: 0 3rem 3rem 0;
     }
   }
+
+  /* Custom Hover Animation for Underline */
+  .hover-underline-slide {
+    position: relative;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .hover-underline-slide::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1.5px;
+    bottom: 0;
+    left: 0;
+    background-color: currentColor;
+    transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.6s ease;
+    transform-origin: right;
+  }
+
+  .hover-underline-slide:hover::after {
+    transform: scaleX(0) translateX(100%);
+    opacity: 0;
+  }
+
+  /* Statement Section — matches reference nectar-text-inline-images */
+  .statement-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    text-align: center;
+  }
+
+  .statement-heading {
+    font-size: 6vw;
+    line-height: 1.1;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    font-family: inherit;
+    margin: 0;
+  }
+
+  .statement-line {
+    display: block;
+    text-align: center;
+    width: 100%;
+  }
+
+  .statement-word {
+    display: inline-block;
+    color: rgba(0, 0, 0, 0.2);
+  }
+
+  .statement-img {
+    display: inline-block;
+    position: relative;
+    width: 0;
+    height: 0.78em;     /* Relative to parent 6vw font-size */
+    overflow: hidden;
+    border-radius: 10px;
+    vertical-align: -0.06em;
+    margin: 0;
+    padding: 0;
+    line-height: 0;
+  }
+
+  .statement-img img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: auto;
+    min-width: 100%;
+    max-width: none;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  @media (max-width: 768px) {
+    .statement-heading {
+      font-size: 10vw;
+    }
+  }
 }

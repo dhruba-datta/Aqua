@@ -20,7 +20,7 @@ export default function Contact() {
   }, []);
 
   return (
-    <section className="py-24 md:py-32 bg-dark text-white overflow-hidden" id="contact" ref={sectionRef}>
+    <section className="py-24 md:py-32 overflow-hidden" id="contact" ref={sectionRef}>
       <div className="mx-auto px-6 sm:px-10 lg:px-16 max-w-[1440px]">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-20 mb-32 opacity-0 translate-y-10 [.is-visible_&]:opacity-100 [.is-visible_&]:translate-y-0 transition-all duration-1000">
           <div className="flex flex-col gap-6">
@@ -48,7 +48,7 @@ export default function Contact() {
           <h2 className="text-fluid-h2 font-black leading-tight mb-12">
             Let&apos;s create something <span className="text-accent italic">extraordinary</span> together.
           </h2>
-          <a href="mailto:hello@signal.agency" className="inline-flex items-center gap-4 px-10 py-5 bg-accent text-white rounded-full font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-all group shadow-2xl">
+          <a href="mailto:hello@signal.agency" className="inline-flex items-center gap-4 px-10 py-5 bg-accent text-white rounded-full font-bold uppercase tracking-widest hover:bg-black transition-all group shadow-2xl">
             Start a Project
             <span className="flex items-center justify-center w-8 h-8 bg-white text-black rounded-full group-hover:translate-x-2 transition-transform">
               <svg viewBox="0 0 12 12" className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">

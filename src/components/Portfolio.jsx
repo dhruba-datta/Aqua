@@ -64,7 +64,7 @@ export default function Portfolio() {
   };
 
   return (
-    <section className="relative overflow-hidden bg-dark py-24 md:py-32" id="portfolio" ref={sectionRef}>
+    <section className="relative overflow-hidden py-24 md:py-32" id="portfolio" ref={sectionRef}>
       <div className="mx-auto px-6 sm:px-10 lg:px-16 mb-16">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
           <h2 className="text-fluid-h2 font-bold tracking-tight">Featured Work</h2>
@@ -74,8 +74,8 @@ export default function Portfolio() {
                 key={f}
                 className={`px-5 py-2 rounded-full text-sm font-semibold border transition-all ${
                   activeFilter === f 
-                    ? 'bg-white text-black border-white' 
-                    : 'bg-transparent text-white border-white/20 hover:border-white'
+                    ? 'bg-black text-white border-black' 
+                    : 'bg-transparent text-black border-black/20 hover:border-black'
                 }`}
                 onClick={() => setActiveFilter(f)}
               >

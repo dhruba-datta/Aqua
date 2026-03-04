@@ -38,7 +38,7 @@ export default function Testimonials() {
   }, []);
 
   return (
-    <section className="py-24 md:py-32 bg-dark text-white" id="testimonials">
+    <section className="py-24 md:py-32" id="testimonials">
       <div className="mx-auto px-6 sm:px-10 lg:px-16">
         <div className="flex flex-col items-center">
           <div className="relative w-full max-w-4xl min-h-[300px]">
@@ -51,11 +51,11 @@ export default function Testimonials() {
                     : 'opacity-0 translate-y-8 pointer-events-none'
                 }`}
               >
-                <p className="text-2xl md:text-3xl lg:text-4xl font-medium leading-relaxed mb-10 text-white/90 italic truncate-lines-4">
+                <p className="text-2xl md:text-3xl lg:text-4xl font-medium leading-relaxed mb-10 text-black/90 italic truncate-lines-4">
                   &ldquo;{t.quote}&rdquo;
                 </p>
                 <footer className="flex flex-col items-center gap-2">
-                  <span className="text-lg font-bold text-white uppercase tracking-widest">{t.author}</span>
+                  <span className="text-lg font-bold text-black uppercase tracking-widest">{t.author}</span>
                   <span className="text-sm font-semibold text-accent uppercase tracking-widest">{t.role}</span>
                 </footer>
               </blockquote>
@@ -67,7 +67,7 @@ export default function Testimonials() {
               <button
                 key={i}
                 className={`w-12 h-1 rounded-full transition-all duration-500 ${
-                  i === current ? 'bg-accent' : 'bg-white/20 hover:bg-white/40'
+                  i === current ? 'bg-accent' : 'bg-black/20 hover:bg-black/40'
                 }`}
                 onClick={() => goTo(i)}
                 aria-label={`Go to testimonial ${i + 1}`}
