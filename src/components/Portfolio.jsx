@@ -95,7 +95,7 @@ export default function Portfolio() {
               onMouseMove={(e) => handleMouseMove(e, e.currentTarget)}
               onMouseLeave={(e) => handleMouseLeave(e.currentTarget)}
             >
-              <div className="aspect-[4/5] overflow-hidden rounded-2xl bg-white/5 mb-6">
+              <div className="aspect-4/5 overflow-hidden rounded-2xl bg-white/5 mb-6">
                 <img
                   src={project.image}
                   alt={project.title}

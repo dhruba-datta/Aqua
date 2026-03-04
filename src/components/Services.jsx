@@ -1,112 +1,125 @@
 import { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
 
 const services = [
   {
+    title: 'Marketing',
+    tags: ['SEO', 'PPC', 'Conversion Optimization', 'A/B Testing', 'Analytics & Reporting'],
+    image: '/images/into-the-heat.png'
+  },
+  {
     title: 'Content Creation',
-    icon: (
-      <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <rect x="6" y="6" width="36" height="36" rx="4" />
-        <path d="M6 18h36M18 18v24" />
-        <circle cx="32" cy="30" r="4" />
-      </svg>
-    ),
+    tags: ['Copywriting', 'Design', 'Production', 'Blogs & Articles', 'Creative Assets'],
+    image: '/images/crystal-vibes.png'
   },
   {
     title: 'Web Design',
-    icon: (
-      <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <rect x="4" y="8" width="40" height="28" rx="3" />
-        <path d="M4 16h40M14 40h20M24 36v4" />
-      </svg>
-    ),
+    tags: ['WordPress', 'Responsive Design', 'Prototyping', 'CMS', 'Lighthouse'],
+    image: '/images/radiant.png'
   },
   {
     title: 'Branding',
-    icon: (
-      <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <circle cx="24" cy="24" r="18" />
-        <path d="M24 6v36M6 24h36M10 10l28 28M38 10L10 38" />
-      </svg>
-    ),
+    tags: ['Logo Design', 'Strategy', 'Print', 'Style Guides', 'Visual Identity'],
+    image: '/images/balanced.png'
   },
   {
     title: 'Videos',
-    icon: (
-      <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <rect x="4" y="10" width="30" height="28" rx="3" />
-        <path d="M34 20l10-6v20l-10-6" />
-      </svg>
-    ),
-  },
-  {
-    title: 'Social Media',
-    icon: (
-      <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <circle cx="14" cy="14" r="6" />
-        <circle cx="34" cy="14" r="6" />
-        <circle cx="24" cy="34" r="6" />
-        <path d="M19 17l5 14M29 17l-5 14" />
-      </svg>
-    ),
-  },
-  {
-    title: 'Marketing',
-    icon: (
-      <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path d="M8 40V24M16 40V18M24 40V12M32 40V20M40 40V8" strokeLinecap="round" />
-      </svg>
-    ),
-  },
+    tags: ['Storyboarding', 'Reels & Shorts', 'Filming', 'Editing', 'Motion Graphics'],
+    image: '/images/framework.png'
+  }
 ];
 
 export default function Services() {
-  const sectionRef = useRef(null);
+  const scrollRef = useRef(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const cards = entry.target.querySelectorAll('.service-card');
-            cards.forEach((card, i) => {
-              setTimeout(() => {
-                card.classList.remove('opacity-0', 'translate-y-10');
-                card.classList.add('opacity-100', 'translate-y-0');
-              }, i * 150);
-            });
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.2 }
-    );
+    const slider = scrollRef.current;
+    if (!slider) return;
 
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => observer.disconnect();
+    // Calculate total width of one set of items
+    const scrollWidth = slider.scrollWidth;
+    
+    // We'll create a GSAP animation that moves the scrollLeft
+    // For a smooth infinite feel, we animate to half the total scrollWidth (since we duplicate)
+    const animation = gsap.to(slider, {
+      scrollLeft: scrollWidth / 2,
+      duration: 25, // Slightly faster for better feel
+      ease: "none",
+      repeat: -1,
+      onRepeat: () => {
+        slider.scrollLeft = 0;
+      }
+    });
+
+    // Pause on hover
+    const onMouseEnter = () => animation.pause();
+    const onMouseLeave = () => animation.play();
+
+    slider.addEventListener('mouseenter', onMouseEnter);
+    slider.addEventListener('mouseleave', onMouseLeave);
+
+    return () => {
+      animation.kill();
+      slider.removeEventListener('mouseenter', onMouseEnter);
+      slider.removeEventListener('mouseleave', onMouseLeave);
+    };
   }, []);
 
   return (
-    <section className="py-24 md:py-32 bg-dark text-white" id="services" ref={sectionRef}>
-      <div className="mx-auto px-6 sm:px-10 lg:px-16">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-10 mb-16 md:mb-24">
-          <h2 className="text-fluid-h2 max-w-2xl leading-tight">
-            From strategy to spotlight, we make brands <span className="text-accent italic">shine</span>
+    <section className="py-24 md:py-32 bg-[#f5f5f5] text-black overflow-hidden" id="services">
+      <div className="w-full">
+        
+        {/* Header Section */}
+        <div className="mx-auto px-6 sm:px-10 lg:px-16 flex flex-col md:flex-row md:items-end justify-between gap-10 mb-12 md:mb-16">
+          <h2 className="text-[2.25rem] md:text-[3.25rem] lg:text-[4rem] font-medium max-w-4xl leading-[1.05] tracking-tight">
+            From strategy to spotlight, we <br className="hidden md:block" /> make brands shine
           </h2>
-          <a href="#contact" className="inline-flex items-center gap-3 px-8 py-4 bg-accent text-white rounded-full font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-all group">
+          <a 
+            href="#contact" 
+            className="text-lg md:text-xl font-medium pb-1 border-b-[1.5px] border-black hover:text-gray-600 hover:border-gray-600 transition-colors shrink-0 mb-2 md:mb-4"
+          >
             Start a Project
-            <span className="flex items-center justify-center w-7 h-7 bg-white text-black rounded-full group-hover:translate-x-1 transition-transform">
-              <svg viewBox="0 0 12 12" className="w-3 h-3" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-                <path d="M2 6h8M7 3l3 3-3 3" />
-              </svg>
-            </span>
           </a>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service) => (
-            <div key={service.title} className="service-card opacity-0 translate-y-10 transition-transform duration-700 ease-out bg-white/5 border border-white/10 rounded-2xl p-10 hover:border-accent hover:-translate-y-2 cursor-pointer group">
-              <div className="w-12 h-12 mb-6 text-accent group-hover:scale-110 transition-transform">{service.icon}</div>
-              <h3 className="text-2xl font-semibold tracking-tight">{service.title}</h3>
+        {/* Horizontal Scrolling Cards */}
+        <div 
+          ref={scrollRef}
+          className="flex overflow-x-hidden gap-6 md:gap-8 pb-12 px-6 sm:px-10 lg:px-16 whitespace-nowrap"
+        >
+          {/* Duplicate the services twice for a seamless infinite loop */}
+          {[...services, ...services].map((service, index) => (
+            <div 
+              key={`${service.title}-${index}`} 
+              className="relative flex-none w-[75vw] md:w-[40vw] lg:w-[350px] xl:w-[400px] h-[400px] xl:h-[450px] rounded-2xl md:rounded-3xl overflow-hidden group"
+            >
+              {/* Background Image */}
+              <img 
+                src={service.image} 
+                alt={service.title} 
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+              
+              {/* Dark Gradient Overlay for text readability */}
+              <div className="absolute inset-0 bg-linear-to-b from-black/40 via-transparent to-black/80"></div>
+
+              {/* Content Overlay */}
+              <div className="relative h-full flex flex-col justify-between p-8 md:p-10 text-white whitespace-normal">
+                <h3 className="text-2xl md:text-3xl font-light tracking-tight">
+                  {service.title}
+                </h3>
+                
+                <div className="flex flex-wrap gap-1.5">
+                  {service.tags.map((tag) => (
+                    <span 
+                      key={tag}
+                      className="px-2.5 py-1 bg-white/10 backdrop-blur-md rounded-full text-[9px] font-semibold tracking-wide text-white/90 border border-white/10"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </div>
           ))}
         </div>
