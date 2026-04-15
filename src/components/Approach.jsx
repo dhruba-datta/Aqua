@@ -34,7 +34,7 @@ export default function Approach() {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 md:mb-20">
           <div className="max-w-4xl">
             <div className="flex items-center gap-3 mb-8">
-              <span className="w-2 h-2 rounded-full bg-[#0891b2]"></span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="opacity-50"><path d="M12 2v20M2 12h20" /></svg>
               <span className="text-[13px] font-bold tracking-widest uppercase opacity-50">Our Approach</span>
             </div>
             <h2 className="text-[1.75rem] sm:text-[2.25rem] md:text-[3.25rem] lg:text-[4rem] font-medium leading-[1.05] tracking-tight">

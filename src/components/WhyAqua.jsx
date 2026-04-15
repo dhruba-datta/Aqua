@@ -13,7 +13,7 @@ export default function WhyAqua() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12 items-start">
           <div className="md:col-span-4 md:sticky md:top-32">
             <div className="flex items-center gap-3 mb-8">
-              <span className="w-2 h-2 rounded-full bg-[#0891b2]"></span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="opacity-50"><path d="M12 2v20M2 12h20" /></svg>
               <span className="text-[13px] font-bold tracking-widest uppercase opacity-50">Why AQUA</span>
             </div>
             <h2 className="text-[1.75rem] sm:text-[2.25rem] md:text-[3.25rem] lg:text-[4rem] font-medium leading-[1.05] tracking-tight">
