@@ -19,13 +19,13 @@ export default function Footer() {
         end: "top 85%", // Reverts when scrolling back up past this point
         onEnter: () => {
           gsap.to(mainSection, {
-            backgroundColor: "#FF9101",
+            backgroundColor: "#7DD8E6",
             color: "#000000",
             duration: 0.8,
             ease: "power2.inOut"
           });
           gsap.to(footerRef.current, {
-            backgroundColor: "#FF9101",
+            backgroundColor: "#7DD8E6",
             color: "#000000",
             duration: 0.8,
             ease: "power2.inOut"
@@ -68,8 +68,8 @@ export default function Footer() {
             </svg>
             <span className="text-[13px] font-bold tracking-widest uppercase opacity-50">Contact Us</span>
           </div>
-          <h2 className="text-[2rem] sm:text-[3rem] md:text-[4rem] lg:text-[5rem] font-medium leading-[1.05] tracking-tight">
-            Interested in working together, <span className="text-black/40">trying out the platform or simply learning more?</span>
+          <h2 className="text-[1.75rem] sm:text-[2.25rem] md:text-[3.25rem] lg:text-[4rem] font-medium leading-[1.05] tracking-tight">
+            Let&apos;s turn your vision <span className="text-black/40">into a measurable experience.</span>
           </h2>
         </div>
 
@@ -77,20 +77,24 @@ export default function Footer() {
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-10 md:gap-16 mt-16 md:mt-24">
           <div>
             <p className="text-[13px] font-bold tracking-widest uppercase opacity-40 mb-4">Contact us at:</p>
-            <a href="mailto:hello@signal.agency" className="text-2xl md:text-3xl font-medium flex items-center gap-3 transition-all group">
-              hello@signal.agency
+            <a href="mailto:hello@aquainnovations.com" className="text-2xl md:text-3xl font-medium flex items-center gap-3 transition-all group">
+              hello@aquainnovations.com
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">
                 <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </a>
           </div>
 
-          <div className="flex flex-wrap gap-x-10 gap-y-4 text-[1.25rem] md:text-[1.5rem] lg:text-[2rem] font-medium tracking-tight">
-            {['Instagram', 'LinkedIn', 'Facebook', 'Twitter'].map((link) => (
-              <a key={link} href="#" className="transition-all opacity-70 hover:opacity-100">
-                {link}
-              </a>
-            ))}
+          <div className="flex flex-col items-start lg:items-end gap-3">
+            <p className="text-[13px] font-bold tracking-widest uppercase opacity-40">Call us</p>
+            <a href="tel:+880" className="text-2xl md:text-3xl font-medium">+880 XXX XXX XXXX</a>
+            <div className="flex flex-wrap gap-x-8 gap-y-2 text-[1rem] md:text-[1.15rem] font-medium tracking-tight mt-2">
+              {['Instagram', 'LinkedIn', 'Facebook', 'Behance'].map((link) => (
+                <a key={link} href="#" className="transition-all opacity-70 hover:opacity-100">
+                  {link}
+                </a>
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -98,7 +102,7 @@ export default function Footer() {
       {/* Bottom Section (Logo and Copyright) */}
       <div className="w-full mt-16 md:mt-24 border-t border-black/10 pt-8 md:pt-10">
         <div className="mx-auto flex flex-col md:flex-row justify-between items-center gap-4 md:gap-6 text-[11px] sm:text-[12px] font-bold uppercase tracking-widest opacity-40 px-6 sm:px-12 lg:px-32 w-full max-w-[1600px]">
-          <span>© {new Date().getFullYear()} Signal. All rights reserved.</span>
+          <span>© {new Date().getFullYear()} AQUA Innovations. Dhaka, Bangladesh.</span>
           <div className="flex gap-10">
             <a href="#" className="hover:text-black transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-black transition-colors">Terms of Service</a>

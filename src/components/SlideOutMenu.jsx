@@ -1,8 +1,9 @@
 const menuLinks = [
   { label: "Index", href: "#hero" },
+  { label: "About", href: "#about" },
   { label: "Services", href: "#services" },
-  { label: "Featured Work", href: "#portfolio" },
-  { label: "Testimonials", href: "#testimonials" },
+  { label: "Approach", href: "#approach" },
+  { label: "Work", href: "#portfolio" },
   { label: "Contact", href: "#contact" },
 ];
 

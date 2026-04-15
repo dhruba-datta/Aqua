@@ -6,42 +6,41 @@ gsap.registerPlugin(ScrollTrigger);
 
 const projects = [
   {
-    title: 'Crystal Vibes',
-    categories: ['art-culture'],
-    image: 'https://themenectar.com/salient/signal/wp-content/uploads/sites/45/2025/10/karsten-winegeart-Dh5Re5w_fv8-unsplash.jpg',
+    title: 'Corporate Summit',
+    categories: ['events'],
+    image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1400&q=80',
     href: '#',
   },
   {
-    title: 'Into the Heat',
-    categories: ['concepts'],
-    image: 'https://themenectar.com/salient/signal/wp-content/uploads/sites/45/2025/08/andrei-castanha-fuTjGnN8rNs-unsplash.jpg',
+    title: 'Brand Activation',
+    categories: ['events'],
+    image: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1400&q=80',
     href: '#',
   },
   {
-    title: 'Radiant',
-    categories: ['art-culture', 'concepts'],
-    image: 'https://themenectar.com/salient/signal/wp-content/uploads/sites/45/2025/06/christian-agbede-aohV_aatqQw-unsplash-1-1.jpg',
+    title: 'Digital Ecosystem',
+    categories: ['digital'],
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=80',
     href: '#',
   },
   {
-    title: 'Framework',
-    categories: ['concepts', 'websites'],
-    image: 'https://themenectar.com/salient/signal/wp-content/uploads/sites/45/2025/04/yordan-stoyanov-IKy3Rqo3SBx4-unsplash-1.jpg',
+    title: 'Architectural Install',
+    categories: ['digital'],
+    image: 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1400&q=80',
     href: '#',
   },
   {
-    title: 'Balanced',
-    categories: ['art-culture', 'websites'],
-    image: 'https://themenectar.com/salient/signal/wp-content/uploads/sites/45/2025/02/braxton-apana-2Y4KrTv1kvU-unsplash-1.jpg',
+    title: 'Sports Campaign',
+    categories: ['events'],
+    image: 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=1400&q=80',
     href: '#',
   },
 ];
 
 const filters = [
   { label: 'All', value: '-1' },
-  { label: 'Art & Culture', value: 'art-culture' },
-  { label: 'Concepts', value: 'concepts' },
-  { label: 'Websites', value: 'websites' },
+  { label: 'Events', value: 'events' },
+  { label: 'Digital', value: 'digital' },
 ];
 
 export default function Portfolio() {
@@ -117,7 +116,7 @@ export default function Portfolio() {
 
   return (
     <section
-      className="relative py-24 md:py-32 w-full"
+      className="relative py-20 md:py-32 w-full"
       id="portfolio"
       ref={sectionRef}
       onMouseMove={handleMouseMove}

@@ -38,7 +38,7 @@ export default function Header({ onMenuOpen, lenis }) {
           <span
             className={`font-black text-[1.5rem] tracking-tighter uppercase transition-colors duration-500 ${scrolled ? "text-white" : "text-black"}`}
           >
-            Aqua
+            AQUA
           </span>
         </div>
         <div className="flex items-center gap-6">

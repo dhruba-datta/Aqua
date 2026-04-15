@@ -3,10 +3,14 @@ import Lenis from 'lenis';
 import Header from './components/Header';
 import SlideOutMenu from './components/SlideOutMenu';
 import Hero from './components/Hero';
+import About from './components/About';
 import Services from './components/Services';
+import Approach from './components/Approach';
 import Statement from './components/Statement';
+import WhyAqua from './components/WhyAqua';
 import Portfolio from './components/Portfolio';
 import Testimonials from './components/Testimonials';
+import Industries from './components/Industries';
 import Footer from './components/Footer';
 
 export default function App() {
@@ -70,10 +74,14 @@ export default function App() {
 
         <main className="noise-bg bg-orange-accent z-0" id="main-content">
           <Hero />
+          <About />
           <Services lenis={lenis} />
+          <Approach />
           <Statement />
+          <WhyAqua />
           <Portfolio />
           <Testimonials />
+          <Industries />
         </main>
 
         <Footer />

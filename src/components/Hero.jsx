@@ -132,26 +132,49 @@ export default function Hero() {
         aria-hidden="true"
       />
 
-      <div className="relative z-10 w-full px-4 sm:px-10 lg:px-16 mx-auto">
+      <div className="relative z-10 w-full px-6 sm:px-12 lg:px-32 mx-auto">
         <h1 className="flex flex-col items-center justify-center text-center">
-          <div className="relative">
+          <div className="relative mb-4 md:mb-6">
             <span className="block overflow-hidden hero__heading-line transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] opacity-0 translate-y-[110%]">
-              <span className="inline-block text-fluid-hero font-black uppercase tracking-tightest leading-[0.8]">WE CREATE</span>
+              <span className="inline-block text-[clamp(1rem,1.9vw,1.5rem)] font-semibold uppercase tracking-[0.2em] text-black/50">
+                We don&apos;t just build brands
+              </span>
             </span>
           </div>
           <div className="relative">
             <span className="block overflow-hidden hero__heading-line transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] opacity-0 translate-y-[110%]">
-              <span className="inline-block text-fluid-hero font-black uppercase tracking-tightest leading-[0.8]">THE HYPE</span>
+              <span className="inline-block text-[clamp(2.75rem,10.5vw,11rem)] font-black tracking-tightest leading-[0.88] uppercase">
+                We Architect
+              </span>
+            </span>
+          </div>
+          <div className="relative">
+            <span className="block overflow-hidden hero__heading-line transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] opacity-0 translate-y-[110%]">
+              <span className="inline-block text-[clamp(2.75rem,10.5vw,11rem)] font-black tracking-tightest leading-[0.88] uppercase">
+                Experiences
+              </span>
+            </span>
+          </div>
+          <div className="relative mt-4 md:mt-6">
+            <span className="block overflow-hidden hero__heading-line transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] opacity-0 translate-y-[110%]">
+              <span className="inline-block text-[clamp(1rem,1.9vw,1.5rem)] font-semibold uppercase tracking-[0.2em] text-black/50">
+                That move people
+              </span>
             </span>
           </div>
         </h1>
+
+        <p className="max-w-2xl mx-auto text-center mt-10 md:mt-12 text-[1rem] sm:text-[1.125rem] md:text-[1.25rem] font-normal text-black/60 leading-relaxed">
+          From concept to reality, AQUA Innovations merges creativity, technology, and architectural thinking to design experiences that influence, engage, and convert.
+        </p>
+
       </div>
 
-      <div className="absolute bottom-6 sm:bottom-10 left-0 right-0 z-10 px-4 sm:px-10 lg:px-16 mx-auto uppercase">
+      <div className="absolute bottom-6 sm:bottom-10 left-0 right-0 z-10 px-6 sm:px-12 lg:px-32 mx-auto uppercase">
         <div className="grid grid-cols-1 md:grid-cols-3 items-center text-[0.65rem] sm:text-[0.75rem] font-semibold tracking-wider gap-2 md:gap-0">
-          <span className="text-center md:text-left">Based in New York</span>
-          <span className="text-center hidden md:block">A boutique marketing + creative agency</span>
-          <span className="text-center md:text-right">Established 2013</span>
+          <span className="text-center md:text-left">Based in Dhaka, Bangladesh</span>
+          <span className="text-center hidden md:block"></span>
+          <span className="text-center md:text-right">Established 2025</span>
         </div>
       </div>
     </section>

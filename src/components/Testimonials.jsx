@@ -6,22 +6,22 @@ gsap.registerPlugin(ScrollTrigger);
 
 const testimonials = [
   {
-    quote: "The strategy sessions felt like creative therapy — and the final campaign? It stopped people in their tracks. Our audience finally sees us the way we always hoped they would.",
-    author: 'Zak Reid',
-    role: 'Founder',
-    image: 'https://themenectar.com/salient/signal/wp-content/uploads/sites/45/2025/11/king-alexander-grey-r4e9l7_ouQU-unsplash-240x300.jpg'
+    quote: "AQUA doesn't just execute — they elevate the entire vision. Every touchpoint felt considered, every detail engineered.",
+    author: 'Senior Marketing Manager',
+    role: 'FMCG Brand',
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80'
   },
   {
-    quote: "It’s rare to find a partner that’s equally strategic and artistic. They understood goals, challenged assumptions, and turned big ideas into visuals that demand attention.",
-    author: 'Eve Crawford',
-    role: 'Product Designer',
-    image: 'https://themenectar.com/salient/signal/wp-content/uploads/sites/45/2025/09/testimonial-1-296x300.jpg'
+    quote: "Their ability to merge architecture with brand storytelling is unmatched. It changed how we think about our physical spaces.",
+    author: 'Corporate Client',
+    role: 'Multinational Brand',
+    image: 'https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=400&q=80'
   },
   {
-    quote: "Working with this team was a turning point for our brand. They didn’t just deliver a new identity — they uncovered what made us different and gave it a voice.",
-    author: 'Aura Brooks',
-    role: 'Graphic Designer',
-    image: 'https://themenectar.com/salient/signal/wp-content/uploads/sites/45/2025/10/testimonial-2-1.jpg'
+    quote: "From concept to delivery, everything felt precise, premium, and impactful. A rare combination of creativity and discipline.",
+    author: 'Event Director',
+    role: 'Hospitality Group',
+    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80'
   },
 ];
 
@@ -76,8 +76,8 @@ export default function Testimonials() {
   }, [current]);
 
   return (
-    <section className="testimonial-section py-20 md:py-48" id="testimonials">
-      <div className="w-full px-4 sm:px-12 lg:px-32 relative">
+    <section className="testimonial-section py-20 md:py-32" id="testimonials">
+      <div className="w-full px-6 sm:px-12 lg:px-32 relative">
         <div className="testimonial_slider" ref={containerRef}>
           <div className="slides">
             {testimonials.map((testimonial, index) => (

@@ -14,10 +14,12 @@
 }
 
 @theme {
-  --color-orange-accent: #ff4a17;
+  --color-orange-accent: #B8E8EF;
+  --color-aqua-deep: #0891b2;
+  --color-aqua-light: #E0F4F8;
   --color-dark: #0a0a0a;
   --color-dark-secondary: #111111;
-  --color-accent: #3a76f0;
+  --color-accent: #0891b2;
 
   --font-sans:
     "Zalando Sans", "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
@@ -38,7 +40,7 @@
 
 @layer base {
   :root {
-    --bg-orange: #ff4a17;
+    --bg-orange: #B8E8EF;
     --bg-dark: #0a0a0a;
     --text-on-orange: #000000;
   }
@@ -149,10 +151,9 @@
   }
 
   .statement-heading {
-    font-size: 6vw;
-    line-height: 1.1;
-    font-weight: 800;
-    text-transform: uppercase;
+    font-size: clamp(2rem, 4.75vw, 4.75rem);
+    line-height: 1.15;
+    font-weight: 500;
     letter-spacing: -0.02em;
     font-family: inherit;
     margin: 0;
@@ -167,19 +168,21 @@
   .statement-word {
     display: inline-block;
     color: rgba(0, 0, 0, 0.2);
+    will-change: color;
   }
 
   .statement-img {
     display: inline-block;
     position: relative;
     width: 0;
-    height: 0.78em; /* Relative to parent 6vw font-size */
+    height: 0.82em;
     overflow: hidden;
-    border-radius: 10px;
-    vertical-align: -0.06em;
+    border-radius: 8px;
+    vertical-align: -0.12em;
     margin: 0;
     padding: 0;
     line-height: 0;
+    will-change: width, margin;
   }
 
   .statement-img img {
@@ -191,12 +194,12 @@
     min-width: 100%;
     max-width: none;
     object-fit: cover;
-    border-radius: 10px;
+    border-radius: 8px;
   }
 
   @media (max-width: 768px) {
     .statement-heading {
-      font-size: 10vw;
+      font-size: clamp(1.75rem, 7vw, 2.75rem);
     }
   }
 

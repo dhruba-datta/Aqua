@@ -7,34 +7,44 @@ gsap.registerPlugin(ScrollTrigger);
 
 const services = [
   {
-    title: 'Content Creation',
-    tags: ['Copywriting', 'Design', 'Production', 'Blogs & Articles', 'Creative Assets'],
-    image: 'https://themenectar.com/salient/signal/wp-content/uploads/sites/45/2025/11/content_creation.jpg'
+    title: 'Events & Activation',
+    desc: 'Immersive brand environments that transform audiences into participants.',
+    image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1200&q=80'
   },
   {
-    title: 'Web Design',
-    tags: ['WordPress', 'Responsive Design', 'Prototyping', 'CMS', 'Lighthouse'],
-    image: 'https://themenectar.com/salient/signal/wp-content/uploads/sites/45/2025/09/ipad-mockup-studio.jpg'
+    title: 'Social Media Marketing',
+    desc: 'Performance-driven content strategies engineered for visibility, engagement, and conversion.',
+    image: 'https://images.unsplash.com/photo-1611605698335-8b1569810432?auto=format&fit=crop&w=1200&q=80'
   },
   {
     title: 'Branding',
-    tags: ['Logo Design', 'Strategy', 'Print', 'Style Guides', 'Visual Identity'],
-    image: 'https://themenectar.com/salient/signal/wp-content/uploads/sites/45/2025/10/abstract-o.jpg'
+    desc: 'From identity to positioning — we craft brands that command attention and loyalty.',
+    image: 'https://images.unsplash.com/photo-1586953208448-b95a79798f07?auto=format&fit=crop&w=1200&q=80'
   },
   {
-    title: 'Videos',
-    tags: ['Storyboarding', 'Reels & Shorts', 'Filming', 'Editing', 'Motion Graphics'],
-    image: 'https://themenectar.com/salient/signal/wp-content/uploads/sites/45/2025/10/laptop-top.jpg'
+    title: 'Video Production',
+    desc: 'Cinematic storytelling designed to influence perception and elevate brand value.',
+    image: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1200&q=80'
   },
   {
-    title: 'Social Media',
-    tags: ['Strategy', 'Paid Ads', 'Analytics', 'Content Scheduling', 'Management'],
-    image: 'https://themenectar.com/salient/signal/wp-content/uploads/sites/45/2025/10/flower-field.jpg'
+    title: 'Content Creation',
+    desc: 'High-impact, platform-native content that resonates with modern audiences.',
+    image: 'https://images.unsplash.com/photo-1598520106830-8c45c2035460?auto=format&fit=crop&w=1200&q=80'
   },
   {
-    title: 'Marketing',
-    tags: ['SEO', 'PPC', 'Conversion Optimization', 'A/B Testing', 'Analytics & Reporting'],
-    image: 'https://themenectar.com/salient/signal/wp-content/uploads/sites/45/2025/10/lamp.jpg'
+    title: 'Sports Marketing',
+    desc: 'We turn passion into performance through strategic sports-driven engagement.',
+    image: 'https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=1200&q=80'
+  },
+  {
+    title: 'Website & Automation',
+    desc: 'Smart digital ecosystems that streamline operations and enhance user journeys.',
+    image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=80'
+  },
+  {
+    title: 'Architectural Design',
+    desc: 'We design physical spaces that communicate brand identity and human experience.',
+    image: 'https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=1200&q=80'
   }
 ];
 
@@ -48,10 +58,11 @@ export default function Services({ lenis }) {
     if (!slider || !mainSection) return;
 
     // Background color transition using ScrollTrigger
+    const aboutTrigger = document.getElementById("about") ? "#about" : "#services";
     const colorTransition = ScrollTrigger.create({
-      trigger: "#services",
-      start: "top center", // When the top of the Services section hits the center of the viewport
-      end: "bottom center",
+      trigger: aboutTrigger,
+      start: "top 80%",
+      end: "top 30%",
       animation: gsap.to(mainSection, {
         backgroundColor: "#f5f5f5", // Light color
         color: "#000000",
@@ -61,33 +72,35 @@ export default function Services({ lenis }) {
       toggleActions: "play none none reverse", // Play forward into white, reverse back to orange only when going up to Hero
     });
 
-    // Calculate total width of one set of items
-    const scrollWidth = slider.scrollWidth;
-    
-    // We'll create a GSAP animation that moves the scrollLeft
-    // For a smooth infinite feel, we animate to half the total scrollWidth (since we duplicate)
-    const animation = gsap.to(slider, {
-      scrollLeft: scrollWidth / 2,
-      duration: 25, // Slightly faster for better feel
-      ease: "none",
-      repeat: -1,
-      onRepeat: () => {
-        slider.scrollLeft = 0;
-      }
-    });
+    // Infinite marquee via transform + modifier wrap
+    // We duplicate the list, so total width = 2 * set width. Animating -50% loops seamlessly.
+    let animation;
+    const startLoop = () => {
+      const setWidth = slider.scrollWidth / 2;
+      if (!setWidth) return;
+      animation?.kill();
+      gsap.set(slider, { x: 0 });
+      animation = gsap.to(slider, {
+        x: `-=${setWidth}`,
+        duration: setWidth / 60, // ~60px/sec, consistent speed regardless of card count
+        ease: "none",
+        repeat: -1,
+        modifiers: {
+          x: gsap.utils.unitize((x) => parseFloat(x) % setWidth),
+        },
+      });
+    };
 
-    // Pause on hover
-    const onMouseEnter = () => animation.pause();
-    const onMouseLeave = () => animation.play();
+    startLoop();
 
-    slider.addEventListener('mouseenter', onMouseEnter);
-    slider.addEventListener('mouseleave', onMouseLeave);
+    // Re-init on resize so widths stay in sync
+    const onResize = () => startLoop();
+    window.addEventListener("resize", onResize);
 
     return () => {
-      animation.kill();
+      animation?.kill();
       colorTransition.kill();
-      slider.removeEventListener('mouseenter', onMouseEnter);
-      slider.removeEventListener('mouseleave', onMouseLeave);
+      window.removeEventListener("resize", onResize);
     };
   }, []);
 
@@ -104,13 +117,13 @@ export default function Services({ lenis }) {
   };
 
   return (
-    <section className="pt-24 pb-16 md:pt-[25vh] md:pb-32 overflow-hidden text-black" id="services">
+    <section className="py-20 md:py-32 overflow-hidden text-black" id="services">
       <div className="w-full">
         
         {/* Header Section */}
-        <div className="mx-auto px-4 sm:px-10 lg:px-16 flex flex-col md:flex-row md:items-end justify-between gap-6 md:gap-10 mb-10 md:mb-16">
+        <div className="mx-auto px-6 sm:px-12 lg:px-32 flex flex-col md:flex-row md:items-end justify-between gap-6 md:gap-10 mb-10 md:mb-16">
           <h2 className="text-[1.75rem] sm:text-[2.25rem] md:text-[3.25rem] lg:text-[4rem] font-medium max-w-4xl leading-[1.05] tracking-tight">
-            From strategy to spotlight, we <br className="hidden md:block" /> make brands shine
+            Integrated solutions. <br className="hidden md:block" /> One strategic core.
           </h2>
           <a 
             href="#contact" 
@@ -123,50 +136,43 @@ export default function Services({ lenis }) {
         </div>
 
         {/* Horizontal Scrolling Cards */}
-        <div 
-          ref={scrollRef}
-          className="flex overflow-x-hidden gap-[10px] pb-8 md:pb-12 px-4 sm:px-10 lg:px-16 whitespace-nowrap"
-        >
+        <div className="overflow-hidden pb-8 md:pb-12 px-6 sm:px-12 lg:px-32">
+          <div
+            ref={scrollRef}
+            className="flex gap-[10px] w-max will-change-transform"
+          >
           {/* Duplicate the services twice for a seamless infinite loop */}
           {[...services, ...services].map((service, index) => (
-            <div 
-              key={`${service.title}-${index}`} 
-              className="relative flex-none w-[78vw] sm:w-[85vw] md:w-[45vw] lg:w-[400px] xl:w-[437.5px] h-[380px] md:h-[493.35px] rounded-[1.25rem] overflow-hidden group flex flex-col justify-between"
+            <div
+              key={`${service.title}-${index}`}
+              className="relative flex-none w-[78vw] sm:w-[85vw] md:w-[45vw] lg:w-[400px] xl:w-[437.5px] h-[380px] md:h-[493.35px] rounded-[1.25rem] overflow-hidden flex flex-col justify-end"
             >
               {/* Background Image */}
-              <div 
+              <div
                 className="absolute inset-0 w-full h-full bg-cover bg-center"
                 style={{ backgroundImage: `url(${service.image})` }}
               ></div>
-              
-              {/* Dark Gradient Overlay for text readability - Exact Match */}
-              <div 
+
+              {/* Bottom gradient fade for text readability */}
+              <div
                 className="absolute inset-0 pointer-events-none"
                 style={{
-                  background: 'linear-gradient(0deg, rgb(0,0,0) 0%, rgba(0,0,0,0) 36%)',
-                  opacity: 0.2
+                  background: 'linear-gradient(0deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.55) 25%, rgba(0,0,0,0) 55%)'
                 }}
               ></div>
 
-              {/* Content Overlay */}
-              <div className="relative h-full flex flex-col justify-between p-[20px] text-white whitespace-normal z-10 w-full">
-                <h3 className="text-[28px] font-medium tracking-tight leading-tight">
+              {/* Content */}
+              <div className="relative z-10 p-6 md:p-7 text-white whitespace-normal">
+                <h3 className="text-[22px] md:text-[26px] font-medium tracking-tight leading-[1.15] mb-2">
                   {service.title}
                 </h3>
-                
-                <div className="flex flex-wrap gap-[8px] items-start content-start">
-                  {service.tags.map((tag) => (
-                    <span 
-                      key={tag}
-                      className="px-[12px] py-[6px] bg-[rgba(0,0,0,0.09)] rounded-[20px] text-[10px] md:text-[12px] font-medium tracking-wide text-white"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
+                <p className="text-[13px] md:text-[14px] leading-[1.5] text-white/80 max-w-[32ch]">
+                  {service.desc}
+                </p>
               </div>
             </div>
           ))}
+          </div>
         </div>
       </div>
     </section>
