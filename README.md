@@ -10,8 +10,6 @@
 - **Lightning Fast Performance:** Built on React 19 and Vite with a minimal bundle footprint.
 - **Modern Styling:** Styled with Tailwind CSS v4 for absolute flexibility and responsiveness.
 
-## 🐣 Demo
-*(Add your screenshots/GIFs of the Aqua site here!)*
 
 ## 🛠️ Getting Started
 
