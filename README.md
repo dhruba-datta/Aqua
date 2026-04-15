@@ -1,16 +1,44 @@
-# React + Vite
+# Aqua 🌊 ![GitHub watchers](https://img.shields.io/github/watchers/dhruba-datta/Aqua?style=social) ![GitHub Repo stars](https://img.shields.io/github/stars/dhruba-datta/Aqua?style=social) ![](https://visitor-badge.glitch.me/badge?page_id=dhruba-datta.dhruba-datta/Aqua)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Aqua** is a modern, premium digital agency and portfolio web application built with a focus on immersive user experiences, smooth animations, and a rich aesthetic.
 
-Currently, two official plugins are available:
+## ✅ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Fluid Animations & Momentum Scroll:** Deep integration with GSAP and Lenis offers a dynamic, "quiet luxury" user experience.
+- **Transformative Navigation:** A specialized slide-out menu using scaling origin effects for a cinematic, app-like transition.
+- **Section-Driven Layout:** Rich suite of modular, pre-styled page blocks (Statement, Testimonials, Industries, WhyAqua, etc.).
+- **Lightning Fast Performance:** Built on React 19 and Vite with a minimal bundle footprint.
+- **Modern Styling:** Styled with Tailwind CSS v4 for absolute flexibility and responsiveness.
 
-## React Compiler
+## 🐣 Demo
+*(Add your screenshots/GIFs of the Aqua site here!)*
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Getting Started
 
-## Expanding the ESLint configuration
+### Prerequisites
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Make sure you have [Node.js](https://nodejs.org/) installed.
+
+### Installation & Running
+
+Clone the repository and install the dependencies:
+
+```bash
+npm install
+```
+
+Start the Vite development server:
+
+```bash
+npm run dev
+```
+
+Open [http://localhost:5173](http://localhost:5173) in your browser to view the application.
+
+## 🚀 About Me
+
+I'm **[Dhruba Datta](https://dhruba-datta.netlify.app)**, graduated from Delhi Technological University(DTU) in Software Engineering. Currently learning Data Structures and Algorithms, while understanding and implementing the fundamentals of computer engineering and learning web development.
+
+---
+
+⭐ Found this useful? Star the repo & Let’s automate the world together! 🌍
