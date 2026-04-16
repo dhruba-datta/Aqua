@@ -11,14 +11,15 @@ export default function Footer() {
 
   useEffect(() => {
     const mainSection = document.getElementById("main-content");
-    const triggerText = document.getElementById("contact");
-    if (!mainSection || !footerRef.current || !triggerText) return;
+    if (!mainSection || !footerRef.current) return;
 
     const ctx = gsap.context(() => {
       ScrollTrigger.create({
-        trigger: triggerText,
-        start: "top 75%", // Triggers when the text is 75% down the viewport
-        end: "top 85%", // Reverts when scrolling back up past this point
+        // Use the footer itself so the transition fires JUST as it enters view,
+        // not while the user is still reading the section above.
+        trigger: footerRef.current,
+        start: "top 95%", // fires when the top of the footer hits 95% down the viewport
+        end: "top bottom", // revert only once the footer fully leaves the viewport upward
         onEnter: () => {
           gsap.to(mainSection, {
             backgroundColor: "#7DD8E6",
