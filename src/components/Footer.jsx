@@ -90,7 +90,7 @@ export default function Footer() {
 
           <div className="flex flex-col items-start lg:items-end gap-3">
             <p className="text-[13px] font-bold tracking-widest uppercase opacity-40">Call us</p>
-            <a href="tel:+8801705776667" className="text-2xl md:text-3xl font-medium">01705-776667</a>
+            <a href="tel:+8801782314352" className="text-2xl md:text-3xl font-medium">01782-314352</a>
             <div className="flex flex-wrap gap-x-8 gap-y-2 text-[1rem] md:text-[1.15rem] font-medium tracking-tight mt-2">
               <a
                 href="https://www.instagram.com/aquainnovationsco/"
