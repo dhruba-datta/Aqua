@@ -3,11 +3,18 @@ import { gsap } from "gsap";
 
 // A pool of images to cycle through on mouse trail
 const TRAIL_IMAGES = [
-  "https://themenectar.com/salient/signal/wp-content/uploads/sites/45/2025/09/desert.jpg",
-  "https://themenectar.com/salient/signal/wp-content/uploads/sites/45/2025/09/sky.jpg",
-  "https://themenectar.com/salient/signal/wp-content/uploads/sites/45/2025/09/office.jpg",
-  "https://themenectar.com/salient/signal/wp-content/uploads/sites/45/2025/09/orange-shirt.jpg",
-  "https://themenectar.com/salient/signal/wp-content/uploads/sites/45/2025/09/eye-769x1024.jpg",
+  "/images/hero-trail/1.jpg",
+  "/images/hero-trail/2.jpg",
+  "/images/hero-trail/3.jpg",
+  "/images/hero-trail/4.jpg",
+  "/images/hero-trail/5.jpg",
+  "/images/hero-trail/6.jpg",
+  "/images/hero-trail/7.jpg",
+  "/images/hero-trail/8.jpg",
+  "/images/hero-trail/9.jpg",
+  "/images/hero-trail/10.jpg",
+  "/images/hero-trail/11.jpg",
+  "/images/hero-trail/12.jpg",
 ];
 
 // How many trail items to maintain at once

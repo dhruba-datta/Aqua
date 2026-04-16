@@ -5,7 +5,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const HERO_BG = '#48D5CD';
+const HERO_BG = '#85ffff';
 const CONTENT_BG = '#f5f5f5';
 
 export default function LegalPage({ eyebrow, title, intro, updated, sections, lenis }) {

@@ -22,13 +22,13 @@ export default function Footer() {
         end: "bottom top",
         onEnter: () => {
           gsap.to(mainSection, {
-            backgroundColor: "#48D5CD",
+            backgroundColor: "#85ffff",
             color: "#000000",
             duration: 0.8,
             ease: "power2.inOut"
           });
           gsap.to(footerRef.current, {
-            backgroundColor: "#48D5CD",
+            backgroundColor: "#85ffff",
             color: "#000000",
             duration: 0.8,
             ease: "power2.inOut"
