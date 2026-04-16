@@ -1,3 +1,5 @@
+import { useLocation, useNavigate } from "react-router-dom";
+
 const menuLinks = [
   { label: "Index", href: "#hero" },
   { label: "About", href: "#about" },
@@ -8,10 +10,22 @@ const menuLinks = [
 ];
 
 export default function SlideOutMenu({ isOpen, onClose, lenis }) {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const isHome = location.pathname === "/";
+
   const handleLinkClick = (e, href) => {
     e.preventDefault();
     onClose();
-    
+
+    // If we're not on the home page, route there first, then scroll
+    if (!isHome) {
+      setTimeout(() => {
+        navigate("/", { state: { scrollTo: href } });
+      }, 500);
+      return;
+    }
+
     // Wait for the menu closing animation (700ms) before scrolling
     setTimeout(() => {
       if (lenis) {
@@ -26,9 +40,9 @@ export default function SlideOutMenu({ isOpen, onClose, lenis }) {
     <>
       {/* Mobile: Dark panel from right */}
       <div className={`md:hidden fixed inset-y-0 right-0 z-50 w-[85%] bg-[#1a1a1a] transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}>
-        
+
         {/* Close Button — top right */}
-        <button 
+        <button
           onClick={onClose}
           className="absolute right-6 top-6 w-10 h-10 flex items-center justify-center text-white/60 hover:text-white transition-colors cursor-pointer"
           aria-label="Close menu"
@@ -43,13 +57,13 @@ export default function SlideOutMenu({ isOpen, onClose, lenis }) {
         <nav className="h-full flex items-center px-12">
           <ul className="flex flex-col gap-5">
             {menuLinks.map((link, i) => (
-              <li 
+              <li
                 key={link.label}
                 className={`transition-all duration-700 ease-out ${isOpen ? 'translate-x-0 opacity-100' : 'translate-x-12 opacity-0'}`}
                 style={{ transitionDelay: isOpen ? `${250 + i * 80}ms` : '0ms' }}
               >
-                <a 
-                  href={link.href} 
+                <a
+                  href={link.href}
                   onClick={(e) => handleLinkClick(e, link.href)}
                   className="text-[1.65rem] font-light text-white/60 hover:text-white transition-colors duration-300 relative group inline-block"
                 >
@@ -63,16 +77,16 @@ export default function SlideOutMenu({ isOpen, onClose, lenis }) {
       </div>
 
       {/* Mobile backdrop */}
-      <div 
+      <div
         className={`md:hidden fixed inset-0 z-40 bg-black/40 transition-opacity duration-500 ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
         onClick={onClose}
       />
 
       {/* Desktop: Full-screen overlay (existing behavior) */}
       <div className={`hidden md:flex fixed inset-0 z-50 items-center justify-end px-32 transition-opacity duration-500 ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
-        
+
         {/* Floating Close Button */}
-        <button 
+        <button
           onClick={onClose}
           className={`absolute left-[70%] top-1/2 w-16 h-16 bg-white rounded-full flex items-center justify-center text-black shadow-2xl transition-all duration-700 delay-150 cursor-pointer ${isOpen ? 'opacity-100 -translate-x-1/2 -translate-y-1/2 scale-100' : 'opacity-0 -translate-x-1/2 -translate-y-1/2 scale-50'}`}
           aria-label="Close menu"
@@ -86,13 +100,13 @@ export default function SlideOutMenu({ isOpen, onClose, lenis }) {
         <nav className="text-right">
           <ul className="flex flex-col gap-5">
             {menuLinks.map((link, i) => (
-              <li 
+              <li
                 key={link.label}
                 className={`transition-all duration-700 ease-out ${isOpen ? 'translate-x-0 opacity-100' : 'translate-x-20 opacity-0'}`}
                 style={{ transitionDelay: isOpen ? `${200 + i * 100}ms` : '0ms' }}
               >
-                <a 
-                  href={link.href} 
+                <a
+                  href={link.href}
                   onClick={(e) => handleLinkClick(e, link.href)}
                   className="text-[3.5rem] font-light text-white/50 hover:text-white transition-all duration-300 relative group inline-block"
                 >

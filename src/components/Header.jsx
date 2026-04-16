@@ -1,7 +1,11 @@
 import { useState, useEffect } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 export default function Header({ onMenuOpen, lenis }) {
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const isHome = location.pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -13,6 +17,10 @@ export default function Header({ onMenuOpen, lenis }) {
 
   const handleScrollToContact = (e) => {
     e.preventDefault();
+    if (!isHome) {
+      navigate("/", { state: { scrollTo: "#contact" } });
+      return;
+    }
     if (lenis) {
       lenis.scrollTo("#contact", {
         duration: 1.2,
@@ -22,6 +30,9 @@ export default function Header({ onMenuOpen, lenis }) {
       document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
     }
   };
+
+  // Same behavior on every page: black on light hero bg, white inside dark scrolled pill
+  const showLight = scrolled;
 
   return (
     <header
@@ -35,18 +46,20 @@ export default function Header({ onMenuOpen, lenis }) {
         }`}
       >
         <div className="flex-none">
-          <span
-            className={`font-black text-[1.5rem] tracking-tighter uppercase transition-colors duration-500 ${scrolled ? "text-white" : "text-black"}`}
-          >
-            AQUA
-          </span>
+          <Link to="/" className="inline-block">
+            <span
+              className={`font-black text-[1.5rem] tracking-tighter uppercase transition-colors duration-500 ${showLight ? "text-white" : "text-black"}`}
+            >
+              AQUA
+            </span>
+          </Link>
         </div>
         <div className="flex items-center gap-6">
           <a
             href="#contact"
             onClick={handleScrollToContact}
             className={`hidden sm:inline-flex items-center px-8 py-3 border text-[0.9rem] font-bold uppercase tracking-widest rounded-full transition-colors duration-500 ${
-              scrolled
+              showLight
                 ? "border-white text-white hover:bg-white hover:text-black"
                 : "border-black/50 text-black hover:bg-black hover:text-white"
             }`}
@@ -59,10 +72,10 @@ export default function Header({ onMenuOpen, lenis }) {
             aria-label="Open menu"
           >
             <span
-              className={`block w-9 h-[3px] transition-all duration-500 ${scrolled ? "bg-white" : "bg-black"}`}
+              className={`block w-9 h-[3px] transition-all duration-500 ${showLight ? "bg-white" : "bg-black"}`}
             ></span>
             <span
-              className={`block w-9 h-[3px] transition-all duration-500 ${scrolled ? "bg-white" : "bg-black"}`}
+              className={`block w-9 h-[3px] transition-all duration-500 ${showLight ? "bg-white" : "bg-black"}`}
             ></span>
           </button>
         </div>

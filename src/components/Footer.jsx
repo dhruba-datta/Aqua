@@ -1,10 +1,12 @@
 import { useEffect, useRef } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Footer() {
+  const { pathname } = useLocation();
   const footerRef = useRef(null);
 
   useEffect(() => {
@@ -49,7 +51,7 @@ export default function Footer() {
     });
 
     return () => ctx.revert();
-  }, []);
+  }, [pathname]);
 
   return (
     <footer 
@@ -104,8 +106,8 @@ export default function Footer() {
         <div className="mx-auto flex flex-col md:flex-row justify-between items-center gap-4 md:gap-6 text-[11px] sm:text-[12px] font-bold uppercase tracking-widest opacity-40 px-6 sm:px-12 lg:px-32 w-full max-w-[1600px]">
           <span>© {new Date().getFullYear()} AQUA Innovations. All rights reserved.</span>
           <div className="flex gap-10">
-            <a href="#" className="hover:text-black transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-black transition-colors">Terms of Service</a>
+            <Link to="/privacy" className="hover:text-black transition-colors">Privacy Policy</Link>
+            <Link to="/terms" className="hover:text-black transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>
