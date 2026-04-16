@@ -5,24 +5,30 @@ export default function OceanSound() {
   const ctxRef = useRef(null);
   const nodesRef = useRef(null);
   const userMutedRef = useRef(false);
+  const buttonRef = useRef(null);
 
   const start = useCallback(async () => {
-    if (ctxRef.current) return;
-    const AudioCtx = window.AudioContext || window.webkitAudioContext;
-    if (!AudioCtx) return;
+    if (nodesRef.current) return;
 
-    const ctx = new AudioCtx();
-    ctxRef.current = ctx;
+    let ctx = ctxRef.current;
+    if (!ctx) {
+      const AudioCtx = window.AudioContext || window.webkitAudioContext;
+      if (!AudioCtx) return;
+      ctx = new AudioCtx();
+      ctxRef.current = ctx;
+    }
 
     try {
-      if (ctx.state === 'suspended') await ctx.resume();
+      if (ctx.state === 'suspended') {
+        await ctx.resume();
+      }
     } catch (_) { /* noop */ }
 
     if (ctx.state !== 'running') {
-      ctx.close().catch(() => {});
-      ctxRef.current = null;
       return;
     }
+
+    if (nodesRef.current) return;
 
     const bufferSize = 2 * ctx.sampleRate;
     const noiseBuffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
@@ -88,14 +94,14 @@ export default function OceanSound() {
     }
 
     const now = ctx.currentTime;
-    nodes.baseGain.offset.cancelScheduledValues(now);
-    nodes.baseGain.offset.linearRampToValueAtTime(0, now + 0.8);
-    nodes.gain.gain.cancelScheduledValues(now);
-    nodes.gain.gain.linearRampToValueAtTime(0, now + 0.8);
+    try {
+      nodes.baseGain.offset.cancelScheduledValues(now);
+      nodes.baseGain.offset.linearRampToValueAtTime(0, now + 0.8);
+      nodes.gain.gain.cancelScheduledValues(now);
+      nodes.gain.gain.linearRampToValueAtTime(0, now + 0.8);
+    } catch (_) {}
 
     const nodesToStop = nodes;
-    const ctxToClose = ctx;
-    ctxRef.current = null;
     nodesRef.current = null;
 
     setTimeout(() => {
@@ -104,7 +110,6 @@ export default function OceanSound() {
         nodesToStop.lfo.stop();
         nodesToStop.baseGain.stop();
       } catch (_) { /* noop */ }
-      ctxToClose.close().catch(() => {});
     }, 900);
 
     setPlaying(false);
@@ -114,30 +119,24 @@ export default function OceanSound() {
     let cancelled = false;
 
     const tryStart = () => {
-      if (cancelled || userMutedRef.current || ctxRef.current) return;
+      if (cancelled || userMutedRef.current || nodesRef.current) return;
       start();
     };
 
     tryStart();
 
-    const onInteract = () => {
-      if (userMutedRef.current || ctxRef.current) {
-        cleanup();
-        return;
-      }
+    const onInteract = (e) => {
+      if (buttonRef.current && e.target && buttonRef.current.contains(e.target)) return;
+      if (userMutedRef.current || nodesRef.current) return;
       start();
-      cleanup();
     };
 
-    const events = ['pointerdown', 'keydown', 'touchstart', 'scroll'];
-    const cleanup = () => {
-      events.forEach((e) => window.removeEventListener(e, onInteract));
-    };
-    events.forEach((e) => window.addEventListener(e, onInteract, { once: false, passive: true }));
+    const events = ['pointerdown', 'keydown', 'touchstart'];
+    events.forEach((e) => window.addEventListener(e, onInteract, { passive: true }));
 
     return () => {
       cancelled = true;
-      cleanup();
+      events.forEach((e) => window.removeEventListener(e, onInteract));
     };
   }, [start]);
 
@@ -152,7 +151,7 @@ export default function OceanSound() {
   }, []);
 
   const toggle = () => {
-    if (playing) {
+    if (nodesRef.current || playing) {
       userMutedRef.current = true;
       stop();
     } else {
@@ -163,6 +162,7 @@ export default function OceanSound() {
 
   return (
     <button
+      ref={buttonRef}
       type="button"
       onClick={toggle}
       aria-label={playing ? 'Mute ocean sound' : 'Play ocean sound'}
