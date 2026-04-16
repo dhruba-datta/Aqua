@@ -131,7 +131,7 @@ export default function LegalPage({ eyebrow, title, intro, updated, sections, le
                     <a
                       href={`#${s.id}`}
                       onClick={scrollToId(s.id)}
-                      className="group grid grid-cols-12 gap-3 items-center py-4 transition-colors duration-300 hover:bg-black/[0.04] pr-2"
+                      className="group grid grid-cols-12 gap-3 items-center py-4 px-3 -mx-3 rounded-lg transition-colors duration-300 hover:bg-black/[0.04]"
                     >
                       <span className="col-span-2 text-[11px] font-bold tracking-widest uppercase opacity-40">
                         {String(i + 1).padStart(2, '0')}
