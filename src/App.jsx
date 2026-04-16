@@ -4,6 +4,7 @@ import Lenis from 'lenis';
 import Header from './components/Header';
 import SlideOutMenu from './components/SlideOutMenu';
 import Footer from './components/Footer';
+import OceanSound from './components/OceanSound';
 import HomePage from './pages/HomePage';
 import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
@@ -97,6 +98,8 @@ export default function App() {
 
         <Footer />
       </div>
+
+      <OceanSound />
     </div>
   );
 }
