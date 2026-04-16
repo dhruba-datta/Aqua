@@ -81,7 +81,7 @@ export default function About() {
                   {p.num}
                 </span>
                 <div className="col-span-10 md:col-span-4">
-                  <h3 className="text-[1.5rem] sm:text-[1.75rem] md:text-[2rem] font-medium tracking-tight leading-[1] mb-1">
+                  <h3 className="text-[1.5rem] sm:text-[1.75rem] md:text-[2rem] font-medium tracking-tight leading-[1] mb-1 transition-colors duration-300 group-hover:text-[#0891b2]">
                     {p.title}
                   </h3>
                   <p className="text-[0.95rem] md:text-[1rem] opacity-45">

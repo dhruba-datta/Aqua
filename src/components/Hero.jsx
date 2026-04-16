@@ -127,10 +127,19 @@ export default function Hero() {
 
   return (
     <section
-      className="relative min-h-screen flex flex-col justify-center overflow-hidden text-black"
+      className="relative min-h-screen flex flex-col justify-center overflow-hidden text-white"
       ref={heroRef}
       id="hero"
     >
+      {/* Background image (slightly blurred) */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105"
+        style={{ backgroundImage: "url('/images/hero-bg.png')", filter: "blur(2px)" }}
+        aria-hidden="true"
+      />
+      {/* Soft overlay to improve text contrast */}
+      <div className="absolute inset-0 bg-black/20" aria-hidden="true" />
+
       {/* Trail image container */}
       <div
         ref={trailContainerRef}
@@ -142,7 +151,7 @@ export default function Hero() {
         <h1 className="flex flex-col items-center justify-center text-center">
           <div className="relative mb-4 md:mb-6">
             <span className="block overflow-hidden hero__heading-line transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] opacity-0 translate-y-[110%]">
-              <span className="inline-block text-[clamp(1rem,1.9vw,1.5rem)] font-semibold uppercase tracking-[0.2em] text-black/50">
+              <span className="inline-block text-[clamp(1rem,1.9vw,1.5rem)] font-semibold uppercase tracking-[0.2em] text-white/70">
                 We don&apos;t just build brands
               </span>
             </span>
@@ -163,14 +172,14 @@ export default function Hero() {
           </div>
           <div className="relative mt-4 md:mt-6">
             <span className="block overflow-hidden hero__heading-line transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] opacity-0 translate-y-[110%]">
-              <span className="inline-block text-[clamp(1rem,1.9vw,1.5rem)] font-semibold uppercase tracking-[0.2em] text-black/50">
+              <span className="inline-block text-[clamp(1rem,1.9vw,1.5rem)] font-semibold uppercase tracking-[0.2em] text-white/70">
                 That move people
               </span>
             </span>
           </div>
         </h1>
 
-        <p className="max-w-2xl mx-auto text-center mt-10 md:mt-12 text-[1rem] sm:text-[1.125rem] md:text-[1.25rem] font-normal text-black/60 leading-relaxed">
+        <p className="max-w-2xl mx-auto text-center mt-10 md:mt-12 text-[1rem] sm:text-[1.125rem] md:text-[1.25rem] font-normal text-white/80 leading-relaxed">
           From concept to reality, AQUA Innovations merges creativity, technology, and architectural thinking to design experiences that influence, engage, and convert.
         </p>
 

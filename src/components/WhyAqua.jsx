@@ -30,7 +30,7 @@ export default function WhyAqua() {
                 <span className="text-[11px] font-bold tracking-widest opacity-30 shrink-0 w-6">
                   {String(i + 1).padStart(2, '0')}
                 </span>
-                <span className="text-[1.125rem] sm:text-[1.35rem] md:text-[1.5rem] lg:text-[1.75rem] font-medium leading-[1.2] tracking-tight md:whitespace-nowrap">
+                <span className="text-[1.125rem] sm:text-[1.35rem] md:text-[1.5rem] lg:text-[1.75rem] font-medium leading-[1.2] tracking-tight md:whitespace-nowrap transition-colors duration-300 group-hover:text-[#0891b2]">
                   {r}
                 </span>
               </li>

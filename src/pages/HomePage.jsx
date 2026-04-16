@@ -10,7 +10,7 @@ import Industries from '../components/Industries';
 
 export default function HomePage({ lenis }) {
   return (
-    <main className="noise-bg bg-orange-accent z-0" id="main-content">
+    <main className="noise-bg bg-[#f5f5f5] z-0" id="main-content">
       <Hero />
       <About />
       <Services lenis={lenis} />

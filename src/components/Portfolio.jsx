@@ -152,7 +152,7 @@ export default function Portfolio() {
             <a
               key={project.title}
               href={project.href}
-              className="portfolio-item group block border-b border-black/10 transition-colors duration-400 hover:bg-[#121213] hover:text-[#F0EAE6] text-black"
+              className="portfolio-item group block border-b border-black/10 transition-colors duration-400 hover:bg-[#121213] hover:text-[#85ffff] text-black"
               onMouseEnter={() => handleItemEnter(project)}
               onMouseLeave={handleItemLeave}
             >

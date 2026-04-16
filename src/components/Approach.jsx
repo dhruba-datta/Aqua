@@ -62,7 +62,7 @@ export default function Approach() {
 
               {/* Title */}
               <div className="col-span-12 md:col-span-4">
-                <h3 className="text-[1.75rem] sm:text-[2rem] md:text-[2.5rem] font-medium tracking-tight leading-[1]">
+                <h3 className="text-[1.75rem] sm:text-[2rem] md:text-[2.5rem] font-medium tracking-tight leading-[1] transition-colors duration-300 group-hover:text-[#0891b2]">
                   {l.title}
                 </h3>
               </div>

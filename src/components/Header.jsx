@@ -31,8 +31,9 @@ export default function Header({ onMenuOpen, lenis }) {
     }
   };
 
-  // Same behavior on every page: black on light hero bg, white inside dark scrolled pill
-  const showLight = scrolled;
+  // Home hero has a dark image bg, so navbar stays white.
+  // Other pages use a light hero bg, so start black and turn white only inside the dark scrolled pill.
+  const showLight = scrolled || isHome;
 
   return (
     <header
