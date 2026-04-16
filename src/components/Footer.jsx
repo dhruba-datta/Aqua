@@ -139,7 +139,7 @@ export default function Footer() {
                 Facebook
               </a>
               <a
-                href="https://www.google.com/maps/search/?api=1&query=Level+5%2C+Flat-B%2C+House-15%2C+Road-7%2C+Block-C%2C+Niketan%2C+Gulshan%2C+Dhaka%2C+Bangladesh%2C+1212"
+                href="https://maps.app.goo.gl/N7PgpBtfuDeMEPGL6"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="View our location on Google Maps"
