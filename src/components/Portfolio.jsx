@@ -180,7 +180,11 @@ export default function Portfolio() {
 
       {/* Floating cursor-follow image */}
       <div className="portfolio-hover-image hidden md:block absolute top-0 left-0 w-[400px] h-[280px] pointer-events-none z-10 opacity-0 scale-90 overflow-hidden rounded-xl will-change-[transform,opacity] -ml-[200px] -mt-[140px]" ref={imageRef}>
-        <img src="" alt="" className="w-full h-full object-cover" />
+        <img
+          alt=""
+          src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E"
+          className="w-full h-full object-cover"
+        />
       </div>
     </section>
   );
