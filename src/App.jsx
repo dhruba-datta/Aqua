@@ -7,6 +7,7 @@ import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
 import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
+import NotFound from './pages/NotFound';
 
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -90,6 +91,7 @@ export default function App() {
           <Route path="/" element={<HomePage lenis={lenis} />} />
           <Route path="/privacy" element={<Privacy lenis={lenis} />} />
           <Route path="/terms" element={<Terms lenis={lenis} />} />
+          <Route path="*" element={<NotFound lenis={lenis} />} />
         </Routes>
 
         <Footer />

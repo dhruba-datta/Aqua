@@ -15,11 +15,11 @@ export default function Footer() {
 
     const ctx = gsap.context(() => {
       ScrollTrigger.create({
-        // Use the footer itself so the transition fires JUST as it enters view,
-        // not while the user is still reading the section above.
+        // Use the footer itself so the transition fires only once it's clearly
+        // in view — not while the user is still reading the section above.
         trigger: footerRef.current,
-        start: "top 95%", // fires when the top of the footer hits 95% down the viewport
-        end: "top bottom", // revert only once the footer fully leaves the viewport upward
+        start: "top 60%", // fires when the top of the footer hits 60% down the viewport (roughly 40% of the footer already visible)
+        end: "bottom top",
         onEnter: () => {
           gsap.to(mainSection, {
             backgroundColor: "#7DD8E6",
