@@ -81,13 +81,6 @@ export default function Clients() {
     });
     ro.observe(track);
 
-    const onEnter = () => {
-      paused = true;
-    };
-    const onLeave = () => {
-      paused = false;
-      lastT = performance.now();
-    };
     const onVisibility = () => {
       if (document.hidden) {
         paused = true;
@@ -97,15 +90,11 @@ export default function Clients() {
       }
     };
 
-    track.addEventListener('mouseenter', onEnter);
-    track.addEventListener('mouseleave', onLeave);
     document.addEventListener('visibilitychange', onVisibility);
 
     return () => {
       cancelAnimationFrame(rafId);
       ro.disconnect();
-      track.removeEventListener('mouseenter', onEnter);
-      track.removeEventListener('mouseleave', onLeave);
       document.removeEventListener('visibilitychange', onVisibility);
     };
   }, []);
