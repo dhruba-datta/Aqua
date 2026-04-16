@@ -103,9 +103,9 @@ export default function Clients() {
   const loop = [...logos, ...logos];
 
   return (
-    <section className="py-14 md:py-20 text-black overflow-hidden" id="clients" aria-label="Trusted by">
+    <section className="pt-2 md:pt-4 pb-14 md:pb-20 text-black overflow-hidden" id="clients" aria-label="Trusted by">
       {/* Eyebrow label, contained */}
-      <div className="mx-auto px-6 sm:px-12 lg:px-32 max-w-[1600px] mb-8 md:mb-10">
+      <div className="mx-auto px-6 sm:px-12 lg:px-32 max-w-[1600px] mb-16 md:mb-24">
         <div className="flex items-center justify-center gap-3">
           <span className="h-px w-8 bg-black/20" aria-hidden="true" />
           <span className="text-[12px] md:text-[13px] font-bold tracking-widest uppercase opacity-50">

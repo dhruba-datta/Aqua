@@ -12,9 +12,9 @@ const team = [
     photo: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=900&q=80',
   },
   {
-    name: 'MD Nawaz Sharief',
-    role: 'Architect',
-    photo: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=900&q=80',
+    name: 'M Sabbir Hossain',
+    role: 'Chief Technology Officer',
+    photo: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80',
   },
   {
     name: 'Shifat Ahmed',
@@ -22,19 +22,34 @@ const team = [
     photo: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=900&q=80',
   },
   {
-    name: 'Shayekh Rahman Khan',
-    role: 'Manager, Brand Communication',
-    photo: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=900&q=80',
-  },
-  {
-    name: 'M Sabbir Hossain',
-    role: 'Chief Technology Officer',
-    photo: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80',
+    name: 'MD Nawaz Sharief',
+    role: 'Architect',
+    photo: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=900&q=80',
   },
   {
     name: 'Taif Shehab',
     role: 'Creative Manager',
     photo: 'https://images.unsplash.com/photo-1527980965255-d3b416303d12?auto=format&fit=crop&w=900&q=80',
+  },
+  {
+    name: 'Shayekh Rahman Khan',
+    role: 'Manager, Brand Communication',
+    photo: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=900&q=80',
+  },
+  {
+    name: 'Syed Ashif Hossain',
+    role: 'Lead of Growth, Sports',
+    photo: 'https://images.unsplash.com/photo-1521119989659-a83eee488004?auto=format&fit=crop&w=900&q=80',
+  },
+  {
+    name: 'Md Saiful Islam (Saif)',
+    role: 'Digital Alchemist',
+    photo: 'https://images.unsplash.com/photo-1504593811423-6dd665756598?auto=format&fit=crop&w=900&q=80',
+  },
+  {
+    name: 'Md.Tawhidul Alam',
+    role: 'Money Mapper',
+    photo: 'https://images.unsplash.com/photo-1557862921-37829c790f19?auto=format&fit=crop&w=900&q=80',
   },
 ];
 
