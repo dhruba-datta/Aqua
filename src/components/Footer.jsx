@@ -22,13 +22,13 @@ export default function Footer() {
         end: "bottom top",
         onEnter: () => {
           gsap.to(mainSection, {
-            backgroundColor: "#7DD8E6",
+            backgroundColor: "#48D5CD",
             color: "#000000",
             duration: 0.8,
             ease: "power2.inOut"
           });
           gsap.to(footerRef.current, {
-            backgroundColor: "#7DD8E6",
+            backgroundColor: "#48D5CD",
             color: "#000000",
             duration: 0.8,
             ease: "power2.inOut"
@@ -80,8 +80,8 @@ export default function Footer() {
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-10 md:gap-16 mt-16 md:mt-24">
           <div>
             <p className="text-[13px] font-bold tracking-widest uppercase opacity-40 mb-4">Contact us at:</p>
-            <a href="mailto:hello@aquainnovations.com" className="text-2xl md:text-3xl font-medium flex items-center gap-3 transition-all group">
-              hello@aquainnovations.com
+            <a href="mailto:communications@aquabd.pro" className="text-2xl md:text-3xl font-medium flex items-center gap-3 transition-all group">
+              communications@aquabd.pro
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">
                 <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
@@ -90,13 +90,77 @@ export default function Footer() {
 
           <div className="flex flex-col items-start lg:items-end gap-3">
             <p className="text-[13px] font-bold tracking-widest uppercase opacity-40">Call us</p>
-            <a href="tel:+880" className="text-2xl md:text-3xl font-medium">+880 XXX XXX XXXX</a>
+            <a href="tel:+8801705776667" className="text-2xl md:text-3xl font-medium">01705-776667</a>
             <div className="flex flex-wrap gap-x-8 gap-y-2 text-[1rem] md:text-[1.15rem] font-medium tracking-tight mt-2">
-              {['Instagram', 'LinkedIn', 'Facebook', 'Behance'].map((link) => (
-                <a key={link} href="#" className="transition-all opacity-70 hover:opacity-100">
-                  {link}
-                </a>
-              ))}
+              <a
+                href="https://www.instagram.com/aquainnovationsco/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Follow AQUA on Instagram"
+                className="inline-flex items-center gap-1.5 transition-all opacity-70 hover:opacity-100"
+              >
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                </svg>
+                Instagram
+              </a>
+              <a
+                href="https://www.facebook.com/profile.php?id=61568183817324"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Follow AQUA on Facebook"
+                className="inline-flex items-center gap-1.5 transition-all opacity-70 hover:opacity-100"
+              >
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                </svg>
+                Facebook
+              </a>
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Level+5%2C+Flat-B%2C+House-15%2C+Road-7%2C+Block-C%2C+Niketan%2C+Gulshan%2C+Dhaka%2C+Bangladesh%2C+1212"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="View our location on Google Maps"
+                className="inline-flex items-center gap-1.5 transition-all opacity-70 hover:opacity-100"
+              >
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+                Location
+              </a>
             </div>
           </div>
         </div>
