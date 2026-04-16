@@ -48,7 +48,7 @@ export default function Approach() {
 
         {/* Process flow */}
         <div className="max-w-5xl mx-auto">
-          {layers.map((l, i) => (
+          {layers.map((l) => (
             <div
               key={l.num}
               className="group relative grid grid-cols-12 gap-y-3 md:gap-x-6 items-start md:items-center py-7 md:py-10 border-t border-black/15 last:border-b"

@@ -12,26 +12,27 @@ import NotFound from './pages/NotFound';
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [loaded, setLoaded] = useState(false);
-  const [lenis, setLenis] = useState(null);
+  const [lenis] = useState(() => new Lenis({
+    duration: 1.2,
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+  }));
   const [scrollOrigin, setScrollOrigin] = useState("left center");
   const location = useLocation();
 
-  // Smooth scroll with Lenis
+  // Drive Lenis with requestAnimationFrame + clean up on unmount
   useEffect(() => {
-    const l = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-    });
-    setLenis(l);
-
+    let rafId;
     function raf(time) {
-      l.raf(time);
-      requestAnimationFrame(raf);
+      lenis.raf(time);
+      rafId = requestAnimationFrame(raf);
     }
-    requestAnimationFrame(raf);
+    rafId = requestAnimationFrame(raf);
 
-    return () => l.destroy();
-  }, []);
+    return () => {
+      cancelAnimationFrame(rafId);
+      lenis.destroy();
+    };
+  }, [lenis]);
 
   // Page load animation
   useEffect(() => {
@@ -39,14 +40,14 @@ export default function App() {
   }, []);
 
   // Scroll to top on route change (unless the target page handles it itself)
+  const scrollToTarget = location.state?.scrollTo;
   useEffect(() => {
     if (!lenis) return;
     // If navigation carries an intent to scroll to a hash, let the target handle it
-    const scrollTo = location.state?.scrollTo;
-    if (scrollTo) {
+    if (scrollToTarget) {
       // Small delay so the home page mounts first
       setTimeout(() => {
-        lenis.scrollTo(scrollTo, {
+        lenis.scrollTo(scrollToTarget, {
           duration: 1.2,
           easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
         });
@@ -54,7 +55,7 @@ export default function App() {
     } else {
       lenis.scrollTo(0, { immediate: true });
     }
-  }, [location.pathname, lenis]);
+  }, [location.pathname, lenis, scrollToTarget]);
 
   // Handle scroll lock accurately with Lenis
   useEffect(() => {

@@ -22,7 +22,6 @@ export default function Hero() {
   const trailContainerRef = useRef(null);
   const lastPosRef = useRef({ x: -999, y: -999 });
   const imageIndexRef = useRef(0);
-  const trailItemsRef = useRef([]);
 
   // Heading entrance animation
   useEffect(() => {
