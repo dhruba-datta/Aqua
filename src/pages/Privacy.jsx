@@ -114,7 +114,7 @@ const sections = [
       },
       {
         type: 'p',
-        text: 'Write to hello@aquainnovations.com with the subject line "Privacy Request" and we will respond within a reasonable timeframe.',
+        text: 'Write to communications@aquabd.pro with the subject line "Privacy Request" and we will respond within a reasonable timeframe.',
       },
     ],
   },
@@ -154,7 +154,7 @@ const sections = [
     body: [
       {
         type: 'p',
-        text: 'Privacy questions, data requests, or concerns about this policy can reach us at hello@aquainnovations.com. We treat every message as a real conversation — expect a considered reply, not a template.',
+        text: 'Privacy questions, data requests, or concerns about this policy can reach us at communications@aquabd.pro. We treat every message as a real conversation — expect a considered reply, not a template.',
       },
     ],
   },
