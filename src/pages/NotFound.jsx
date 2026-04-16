@@ -214,7 +214,7 @@ export default function NotFound({ lenis }) {
         <div className="grid grid-cols-1 md:grid-cols-3 items-center text-[0.65rem] sm:text-[0.75rem] font-semibold tracking-wider gap-2 md:gap-0 opacity-60">
           <span className="text-center md:text-left">AQUA Innovations · Dhaka, BD</span>
           <span className="text-center hidden md:block">Error 404</span>
-          <span className="text-center md:text-right">Established 2025</span>
+          <span className="text-center md:text-right">Established 2024</span>
         </div>
       </div>
     </main>

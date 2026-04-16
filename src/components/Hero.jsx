@@ -189,7 +189,7 @@ export default function Hero() {
         <div className="grid grid-cols-1 md:grid-cols-3 items-center text-[0.65rem] sm:text-[0.75rem] font-semibold tracking-wider gap-2 md:gap-0">
           <span className="text-center md:text-left">Based in Dhaka, Bangladesh</span>
           <span className="text-center hidden md:block"></span>
-          <span className="text-center md:text-right">Established 2025</span>
+          <span className="text-center md:text-right">Established 2024</span>
         </div>
       </div>
     </section>

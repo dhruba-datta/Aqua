@@ -38,7 +38,7 @@ export default function About() {
           <div className="flex gap-8 sm:gap-10 shrink-0 text-[11px] sm:text-[12px] font-bold tracking-widest uppercase md:mb-3">
             <div className="flex flex-col gap-1">
               <span className="opacity-50">Est.</span>
-              <span>2025</span>
+              <span>2024</span>
             </div>
             <div className="flex flex-col gap-1">
               <span className="opacity-50">Based</span>
@@ -51,7 +51,7 @@ export default function About() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 items-center mb-20 md:mb-28">
           <div className="md:col-span-6 md:order-1 text-[1rem] md:text-[1.125rem] leading-[1.6] text-black/65 space-y-5 max-w-xl">
             <p>
-              Founded in 2025 in Dhaka, AQUA Innovations was born from a simple yet powerful philosophy. The name represents <span className="text-black font-medium">transparency, fluidity, and adaptability</span> — the principles that define how we approach every project.
+              Founded in 2024 in Dhaka, AQUA Innovations was born from a simple yet powerful philosophy. The name represents <span className="text-black font-medium">transparency, fluidity, and adaptability</span> — the principles that define how we approach every project.
             </p>
             <p>
               We don&apos;t operate like a typical agency. We function as a <span className="text-black font-medium">multi-disciplinary experience lab</span> where disciplines overlap by design, not by accident.
