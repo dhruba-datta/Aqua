@@ -7,6 +7,7 @@ import WhyAqua from '../components/WhyAqua';
 import Portfolio from '../components/Portfolio';
 import Team from '../components/Team';
 import Testimonials from '../components/Testimonials';
+import Clients from '../components/Clients';
 import Industries from '../components/Industries';
 
 export default function HomePage({ lenis }) {
@@ -21,6 +22,7 @@ export default function HomePage({ lenis }) {
       <Portfolio />
       <Team />
       <Testimonials />
+      <Clients />
       <Industries />
     </main>
   );

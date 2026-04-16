@@ -1,5 +1,4 @@
 import { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
 
 const team = [
   {
@@ -39,71 +38,121 @@ const team = [
   },
 ];
 
+const SPEED_PX_PER_SEC = 45;
+
 export default function Team() {
   const trackRef = useRef(null);
-  const animationRef = useRef(null);
 
   useEffect(() => {
     const track = trackRef.current;
     if (!track) return;
 
-    const startLoop = () => {
-      // Total width of ONE copy of the list (we render it twice)
-      const setWidth = track.scrollWidth / 2;
-      if (!setWidth) return;
+    // Respect accessibility preference.
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-      animationRef.current?.kill();
-      gsap.set(track, { x: 0 });
+    let x = 0;
+    let setWidth = 0;
+    let paused = false;
+    let rafId = 0;
+    let lastT = 0;
 
-      animationRef.current = gsap.to(track, {
-        x: `-=${setWidth}`,
-        duration: setWidth / 45, // ~45px/sec — slower, more editorial pace
-        ease: 'none',
-        repeat: -1,
-        modifiers: {
-          x: gsap.utils.unitize((x) => parseFloat(x) % setWidth),
-        },
-      });
+    const measure = () => {
+      // The list is rendered twice; one copy's width is half the total scroll width.
+      setWidth = track.scrollWidth / 2;
     };
 
-    // Wait for images to settle so scrollWidth is accurate
-    const imgs = track.querySelectorAll('img');
-    let loaded = 0;
-    const onImgLoad = () => {
-      loaded += 1;
-      if (loaded >= imgs.length) startLoop();
+    const applyTransform = () => {
+      track.style.transform = `translate3d(${x}px, 0, 0)`;
     };
+
+    const tick = (t) => {
+      // Clamp dt so tab-switches or long pauses don't produce a jump.
+      const dt = Math.min((t - lastT) / 1000, 0.05);
+      lastT = t;
+      if (!paused && setWidth > 0) {
+        x -= SPEED_PX_PER_SEC * dt;
+        // Seamless wrap — the second copy slides into the first copy's position.
+        if (x <= -setWidth) x += setWidth;
+        applyTransform();
+      }
+      rafId = requestAnimationFrame(tick);
+    };
+
+    const start = () => {
+      measure();
+      lastT = performance.now();
+      applyTransform();
+      rafId = requestAnimationFrame(tick);
+    };
+
+    // Wait for images to settle so scrollWidth is accurate before we start.
+    const imgs = Array.from(track.querySelectorAll('img'));
+    let started = false;
+    const kickoff = () => {
+      if (started) return;
+      started = true;
+      start();
+    };
+
     if (imgs.length === 0) {
-      startLoop();
+      kickoff();
     } else {
+      let loaded = 0;
+      const onImg = () => {
+        loaded += 1;
+        if (loaded >= imgs.length) kickoff();
+      };
       imgs.forEach((img) => {
-        if (img.complete) onImgLoad();
+        if (img.complete && img.naturalWidth > 0) onImg();
         else {
-          img.addEventListener('load', onImgLoad, { once: true });
-          img.addEventListener('error', onImgLoad, { once: true });
+          img.addEventListener('load', onImg, { once: true });
+          img.addEventListener('error', onImg, { once: true });
         }
       });
-      // Fallback — start anyway after a short delay in case events don't fire
-      setTimeout(startLoop, 800);
+      // Safety: start within 1.5s even if a request stalls.
+      setTimeout(kickoff, 1500);
     }
 
-    const handlePause = () => animationRef.current?.pause();
-    const handleResume = () => animationRef.current?.resume();
-    track.addEventListener('mouseenter', handlePause);
-    track.addEventListener('mouseleave', handleResume);
+    // Re-measure when layout changes — without resetting position, so no jump.
+    const ro = new ResizeObserver(() => {
+      measure();
+      // If we're now past the wrap point (e.g. after a resize shrinks the track), normalize.
+      if (setWidth > 0) {
+        while (x <= -setWidth) x += setWidth;
+      }
+    });
+    ro.observe(track);
 
-    const onResize = () => startLoop();
-    window.addEventListener('resize', onResize);
+    const onEnter = () => {
+      paused = true;
+    };
+    const onLeave = () => {
+      paused = false;
+      lastT = performance.now(); // avoid a dt spike on resume
+    };
+    const onVisibility = () => {
+      if (document.hidden) {
+        paused = true;
+      } else {
+        paused = false;
+        lastT = performance.now();
+      }
+    };
+
+    track.addEventListener('mouseenter', onEnter);
+    track.addEventListener('mouseleave', onLeave);
+    document.addEventListener('visibilitychange', onVisibility);
 
     return () => {
-      animationRef.current?.kill();
-      track.removeEventListener('mouseenter', handlePause);
-      track.removeEventListener('mouseleave', handleResume);
-      window.removeEventListener('resize', onResize);
+      cancelAnimationFrame(rafId);
+      ro.disconnect();
+      track.removeEventListener('mouseenter', onEnter);
+      track.removeEventListener('mouseleave', onLeave);
+      document.removeEventListener('visibilitychange', onVisibility);
     };
   }, []);
 
-  // Render the list twice for a seamless infinite loop
+  // Render the list twice for a seamless infinite loop.
   const loop = [...team, ...team];
 
   return (
