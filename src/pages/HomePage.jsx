@@ -5,6 +5,7 @@ import Approach from '../components/Approach';
 import Statement from '../components/Statement';
 import WhyAqua from '../components/WhyAqua';
 import Portfolio from '../components/Portfolio';
+import Team from '../components/Team';
 import Testimonials from '../components/Testimonials';
 import Industries from '../components/Industries';
 
@@ -18,6 +19,7 @@ export default function HomePage({ lenis }) {
       <Statement />
       <WhyAqua />
       <Portfolio />
+      <Team />
       <Testimonials />
       <Industries />
     </main>
