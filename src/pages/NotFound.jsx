@@ -212,7 +212,7 @@ export default function NotFound({ lenis }) {
       {/* Footer strip — mirrors hero row on Home */}
       <div className="w-full px-6 sm:px-12 lg:px-32 pb-6 sm:pb-10 uppercase">
         <div className="grid grid-cols-1 md:grid-cols-3 items-center text-[0.65rem] sm:text-[0.75rem] font-semibold tracking-wider gap-2 md:gap-0 opacity-60">
-          <span className="text-center md:text-left">AQUA Innovations · Dhaka, BD</span>
+          <span className="text-center md:text-left">Aqua Innovations · Dhaka, BD</span>
           <span className="text-center hidden md:block">Error 404</span>
           <span className="text-center md:text-right">Established 2024</span>
         </div>

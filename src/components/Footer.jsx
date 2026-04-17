@@ -169,7 +169,7 @@ export default function Footer() {
       {/* Bottom Section (Logo and Copyright) */}
       <div className="w-full mt-16 md:mt-24 border-t border-black/10 pt-8 md:pt-10">
         <div className="mx-auto flex flex-col-reverse md:flex-row justify-between items-center gap-5 md:gap-6 text-[11px] sm:text-[12px] font-bold uppercase tracking-widest opacity-40 px-6 sm:px-12 lg:px-32 w-full max-w-[1600px] text-center md:text-left">
-          <span>© {new Date().getFullYear()} AQUA Innovations. All rights reserved.</span>
+          <span>© {new Date().getFullYear()} Aqua Innovations. All rights reserved.</span>
           <div className="flex flex-col md:flex-row items-center gap-3 md:gap-10">
             <Link to="/privacy" className="hover:text-black transition-colors">Privacy Policy</Link>
             <Link to="/terms" className="hover:text-black transition-colors">Terms of Service</Link>

@@ -7,7 +7,7 @@ const sections = [
     body: [
       {
         type: 'p',
-        text: 'AQUA Innovations ("AQUA", "we", "us", "our") designs brand experiences, environments, and digital products for clients across Bangladesh and beyond. This Privacy Policy explains what information we collect, how we use it, and the choices you have when you engage with us — whether you visit this website, brief a project, or attend an event we produce.',
+        text: 'Aqua Innovations ("AQUA", "we", "us", "our") designs brand experiences, environments, and digital products for clients across Bangladesh and beyond. This Privacy Policy explains what information we collect, how we use it, and the choices you have when you engage with us — whether you visit this website, brief a project, or attend an event we produce.',
       },
       {
         type: 'p',

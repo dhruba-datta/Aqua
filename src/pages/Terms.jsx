@@ -7,7 +7,7 @@ const sections = [
     body: [
       {
         type: 'p',
-        text: 'These Terms govern your use of the AQUA Innovations website and any services we provide in connection with it. By browsing the site, submitting an enquiry, or engaging us on a project, you agree to these Terms. If you do not agree, please do not use the site.',
+        text: 'These Terms govern your use of the Aqua Innovations website and any services we provide in connection with it. By browsing the site, submitting an enquiry, or engaging us on a project, you agree to these Terms. If you do not agree, please do not use the site.',
       },
       {
         type: 'p',
@@ -63,11 +63,11 @@ const sections = [
     body: [
       {
         type: 'p',
-        text: 'All content on this website — text, graphics, layouts, code, case studies, and imagery — is the property of AQUA Innovations or our partners and is protected by applicable copyright and trademark law.',
+        text: 'All content on this website — text, graphics, layouts, code, case studies, and imagery — is the property of Aqua Innovations or our partners and is protected by applicable copyright and trademark law.',
       },
       {
         type: 'p',
-        text: 'Deliverables produced for clients are governed by the Statement of Work, which sets out ownership, licensing, and usage rights in detail. Unless explicitly transferred, background methods, tools, and templates remain the property of AQUA.',
+        text: 'Deliverables produced for clients are governed by the Statement of Work, which sets out ownership, licensing, and usage rights in detail. Unless explicitly transferred, background methods, tools, and templates remain the property of Aqua Innovations.',
       },
     ],
   },
@@ -138,7 +138,7 @@ const sections = [
     body: [
       {
         type: 'p',
-        text: 'To the fullest extent permitted by law, AQUA Innovations is not liable for indirect, incidental, consequential, or exemplary damages arising from your use of this website or from any engagement. Our aggregate liability in connection with a project shall not exceed the fees paid to us for that specific engagement.',
+        text: 'To the fullest extent permitted by law, Aqua Innovations is not liable for indirect, incidental, consequential, or exemplary damages arising from your use of this website or from any engagement. Our aggregate liability in connection with a project shall not exceed the fees paid to us for that specific engagement.',
       },
     ],
   },
@@ -192,7 +192,7 @@ const sections = [
     body: [
       {
         type: 'p',
-        text: 'Questions about these Terms or about starting a project can reach us at hello@aquainnovations.com. We read every message carefully and reply personally.',
+        text: 'Questions about these Terms or about starting a project can reach us at communications@aquabd.pro. We read every message carefully and reply personally.',
       },
     ],
   },

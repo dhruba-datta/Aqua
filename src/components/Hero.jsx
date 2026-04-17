@@ -180,7 +180,7 @@ export default function Hero() {
         </h1>
 
         <p className="max-w-2xl mx-auto text-center mt-10 md:mt-12 text-[1rem] sm:text-[1.125rem] md:text-[1.25rem] font-normal text-white/80 leading-relaxed">
-          From concept to reality, AQUA Innovations merges creativity, technology, and architectural thinking to design experiences that influence, engage, and convert.
+          From concept to reality, Aqua Innovations merges creativity, technology, and architectural thinking to design experiences that influence, engage, and convert.
         </p>
 
       </div>
