@@ -1,6 +1,6 @@
 # Aqua 🌊 ![GitHub watchers](https://img.shields.io/github/watchers/dhruba-datta/Aqua?style=social) ![GitHub Repo stars](https://img.shields.io/github/stars/dhruba-datta/Aqua?style=social) ![](https://visitor-badge.glitch.me/badge?page_id=dhruba-datta.dhruba-datta/Aqua)
 
-**Aqua** is a modern, premium digital agency and portfolio web application built with a focus on immersive user experiences, smooth animations, and a rich aesthetic.
+**[Aqua](insert-live-link-here)** is a modern, premium digital agency and portfolio web application built with a focus on immersive user experiences, smooth animations, and a rich aesthetic.
 
 ## ✅ Features
 
@@ -9,7 +9,6 @@
 - **Section-Driven Layout:** Rich suite of modular, pre-styled page blocks (Statement, Testimonials, Industries, WhyAqua, etc.).
 - **Lightning Fast Performance:** Built on React 19 and Vite with a minimal bundle footprint.
 - **Modern Styling:** Styled with Tailwind CSS v4 for absolute flexibility and responsiveness.
-
 
 ## 🛠️ Getting Started
 
