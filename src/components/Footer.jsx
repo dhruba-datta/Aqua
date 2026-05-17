@@ -74,6 +74,12 @@ export default function Footer() {
           <h2 className="text-[1.75rem] sm:text-[2.25rem] md:text-[3.25rem] lg:text-[4rem] font-medium leading-[1.05] tracking-tight">
             Let&apos;s turn your vision <span className="text-black/40">into a measurable experience.</span>
           </h2>
+          <img
+            src="/images/brand-architect.png"
+            alt="Brand Architect"
+            className="mt-10 md:mt-12 w-[220px] sm:w-[280px] md:w-[360px] h-auto"
+            draggable="false"
+          />
         </div>
 
         {/* Middle Section */}

@@ -14,7 +14,7 @@ const team = [
   {
     name: 'M Sabbir Hossain',
     role: 'Chief Technology Officer',
-    photo: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80',
+    photo: '/images/team/m-sabbir-hossain.jpg',
   },
   {
     name: 'Shayekh Rahman Khan',
@@ -29,7 +29,7 @@ const team = [
   {
     name: 'MD Nawaz Sharief',
     role: 'Architect',
-    photo: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=900&q=80',
+    photo: '/images/team/md-nawaz-sharief.jpg',
   },
   {
     name: 'Taif Shehab',
@@ -44,12 +44,12 @@ const team = [
   {
     name: 'Md Saiful Islam (Saif)',
     role: 'Digital Alchemist',
-    photo: 'https://images.unsplash.com/photo-1504593811423-6dd665756598?auto=format&fit=crop&w=900&q=80',
+    photo: '/images/team/md-saiful-islam.jpg',
   },
   {
     name: 'Md.Tawhidul Alam',
     role: 'Money Mapper',
-    photo: 'https://images.unsplash.com/photo-1557862921-37829c790f19?auto=format&fit=crop&w=900&q=80',
+    photo: '/images/team/md-tawhidul-alam.jpg',
   },
 ];
 
@@ -72,8 +72,15 @@ export default function Team() {
     let lastT = 0;
 
     const measure = () => {
-      // The list is rendered twice; one copy's width is half the total scroll width.
-      setWidth = track.scrollWidth / 2;
+      // The list is rendered twice. The seamless period is the exact distance
+      // between the first item of copy 1 and the first item of copy 2 — this is
+      // independent of the track's left padding and inter-item gap, unlike
+      // scrollWidth / 2 (which the one-time left padding skews, causing the jump).
+      const items = track.children;
+      const firstOfSecondCopy = items[team.length];
+      if (firstOfSecondCopy) {
+        setWidth = firstOfSecondCopy.offsetLeft - items[0].offsetLeft;
+      }
     };
 
     const applyTransform = () => {
