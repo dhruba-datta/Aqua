@@ -19,7 +19,7 @@ const services = [
   {
     title: 'Branding',
     desc: 'From identity to positioning — we craft brands that command attention and loyalty.',
-    image: 'https://images.unsplash.com/photo-1586953208448-b95a79798f07?auto=format&fit=crop&w=1200&q=80'
+    image: '/images/services/branding.jpg'
   },
   {
     title: 'Video Production',
@@ -29,7 +29,7 @@ const services = [
   {
     title: 'Content Creation',
     desc: 'High-impact, platform-native content that resonates with modern audiences.',
-    image: 'https://images.unsplash.com/photo-1598520106830-8c45c2035460?auto=format&fit=crop&w=1200&q=80'
+    image: '/images/services/content-creation.jpg'
   },
   {
     title: 'Sports Marketing',

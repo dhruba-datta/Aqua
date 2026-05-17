@@ -1,11 +1,12 @@
 import { useLocation, useNavigate } from "react-router-dom";
 
+// Order mirrors the on-page section flow in HomePage.
 const menuLinks = [
   { label: "Index", href: "#hero" },
-  { label: "About", href: "#about" },
   { label: "Services", href: "#services" },
-  { label: "Approach", href: "#approach" },
   { label: "Work", href: "#portfolio" },
+  { label: "Team", href: "#team" },
+  { label: "About", href: "#about" },
   { label: "Contact", href: "#contact" },
 ];
 

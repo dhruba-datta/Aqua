@@ -8,32 +8,32 @@ const projects = [
   {
     title: 'Corporate Summit',
     categories: ['events'],
-    image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1400&q=80',
-    href: '#',
+    image: 'https://img.youtube.com/vi/re8BxY0VNm4/maxresdefault.jpg',
+    href: 'https://youtu.be/re8BxY0VNm4',
   },
   {
     title: 'Brand Activation',
     categories: ['events'],
-    image: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1400&q=80',
-    href: '#',
+    image: 'https://img.youtube.com/vi/oWgvKzVE6sg/maxresdefault.jpg',
+    href: 'https://youtu.be/oWgvKzVE6sg',
   },
   {
     title: 'Digital Ecosystem',
     categories: ['digital'],
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=80',
-    href: '#',
+    image: 'https://img.youtube.com/vi/fO7pMaQhr2c/maxresdefault.jpg',
+    href: 'https://youtu.be/fO7pMaQhr2c',
   },
   {
     title: 'Architectural Install',
     categories: ['digital'],
-    image: 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1400&q=80',
-    href: '#',
+    image: 'https://img.youtube.com/vi/PPcmklUtx4A/maxresdefault.jpg',
+    href: 'https://youtu.be/PPcmklUtx4A',
   },
   {
     title: 'Sports Campaign',
     categories: ['events'],
-    image: 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=1400&q=80',
-    href: '#',
+    image: 'https://img.youtube.com/vi/G2_LjG9YQqk/maxresdefault.jpg',
+    href: 'https://youtu.be/G2_LjG9YQqk',
   },
 ];
 
@@ -152,6 +152,9 @@ export default function Portfolio() {
             <a
               key={project.title}
               href={project.href}
+              {...(/^https?:\/\//.test(project.href)
+                ? { target: '_blank', rel: 'noopener noreferrer' }
+                : {})}
               className="portfolio-item group block border-b border-black/10 transition-colors duration-400 hover:bg-[#121213] hover:text-[#85ffff] text-black"
               onMouseEnter={() => handleItemEnter(project)}
               onMouseLeave={handleItemLeave}

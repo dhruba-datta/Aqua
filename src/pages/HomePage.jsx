@@ -1,4 +1,5 @@
 import Hero from '../components/Hero';
+import OurWork from '../components/OurWork';
 import About from '../components/About';
 import Services from '../components/Services';
 import Approach from '../components/Approach';
@@ -14,15 +15,16 @@ export default function HomePage({ lenis }) {
   return (
     <main className="noise-bg bg-[#f5f5f5] z-0" id="main-content">
       <Hero />
-      <About />
+      <OurWork />
       <Services lenis={lenis} />
+      <Clients />
+      <Testimonials />
       <Approach />
       <Statement />
       <WhyAqua />
       <Portfolio />
       <Team />
-      <Testimonials />
-      <Clients />
+      <About />
       <Industries />
     </main>
   );
