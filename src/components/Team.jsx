@@ -4,12 +4,12 @@ const team = [
   {
     name: 'Sikder Istiaque Ahmed',
     role: 'Director, Strategy & Planning',
-    photo: '/images/team/1.jpg',
+    photo: '/images/team/sikder-istiaque-ahmed.jpg',
   },
   {
     name: 'Asif Bahar',
     role: 'Chief Operating Officer',
-    photo: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=900&q=80',
+    photo: '/images/team/asif-bahar.jpg',
   },
   {
     name: 'M Sabbir Hossain',
@@ -19,7 +19,7 @@ const team = [
   {
     name: 'Shifat Ahmed',
     role: 'General Manager',
-    photo: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=900&q=80',
+    photo: '/images/team/shifat-ahmed.jpg',
   },
   {
     name: 'MD Nawaz Sharief',
@@ -34,7 +34,7 @@ const team = [
   {
     name: 'Shayekh Rahman Khan',
     role: 'Manager, Brand Communication',
-    photo: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=900&q=80',
+    photo: '/images/team/shayekh-rahman-khan.jpg',
   },
   {
     name: 'Syed Ashif Hossain',
