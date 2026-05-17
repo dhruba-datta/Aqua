@@ -17,6 +17,11 @@ const team = [
     photo: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80',
   },
   {
+    name: 'Shayekh Rahman Khan',
+    role: 'Manager, Brand Communication',
+    photo: '/images/team/shayekh-rahman-khan.jpg',
+  },
+  {
     name: 'Shifat Ahmed',
     role: 'General Manager',
     photo: '/images/team/shifat-ahmed.jpg',
@@ -29,17 +34,12 @@ const team = [
   {
     name: 'Taif Shehab',
     role: 'Creative Manager',
-    photo: 'https://images.unsplash.com/photo-1527980965255-d3b416303d12?auto=format&fit=crop&w=900&q=80',
-  },
-  {
-    name: 'Shayekh Rahman Khan',
-    role: 'Manager, Brand Communication',
-    photo: '/images/team/shayekh-rahman-khan.jpg',
+    photo: '/images/team/taif-shehab.jpg',
   },
   {
     name: 'Syed Ashif Hossain',
     role: 'Lead of Growth, Sports',
-    photo: 'https://images.unsplash.com/photo-1521119989659-a83eee488004?auto=format&fit=crop&w=900&q=80',
+    photo: '/images/team/syed-ashif-hossain.jpg',
   },
   {
     name: 'Md Saiful Islam (Saif)',
