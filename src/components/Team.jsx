@@ -27,7 +27,7 @@ const team = [
     photo: '/images/team/shifat-ahmed.jpg',
   },
   {
-    name: 'MD Nawaz Sharief',
+    name: 'Md Nawaz Sharief',
     role: 'Architect',
     photo: '/images/team/md-nawaz-sharief.jpg',
   },
@@ -47,7 +47,7 @@ const team = [
     photo: '/images/team/md-saiful-islam.jpg',
   },
   {
-    name: 'Md.Tawhidul Alam',
+    name: 'Md Tawhidul Alam',
     role: 'Money Mapper',
     photo: '/images/team/md-tawhidul-alam.jpg',
   },

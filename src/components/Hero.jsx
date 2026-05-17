@@ -134,7 +134,7 @@ export default function Hero() {
       {/* Background image (slightly blurred) */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105"
-        style={{ backgroundImage: "url('/images/hero-bg.png')", filter: "blur(2px)" }}
+        style={{ backgroundImage: "url('/images/hero-bg.jpg')", filter: "blur(2px)" }}
         aria-hidden="true"
       />
       {/* Soft overlay to improve text contrast */}

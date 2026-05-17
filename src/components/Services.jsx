@@ -9,7 +9,7 @@ const services = [
   {
     title: 'Events & Activation',
     desc: 'Immersive brand environments that transform audiences into participants.',
-    image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1200&q=80'
+    image: '/images/services/events-activation.jpg'
   },
   {
     title: 'Social Media Marketing',
@@ -24,7 +24,7 @@ const services = [
   {
     title: 'Video Production',
     desc: 'Cinematic storytelling designed to influence perception and elevate brand value.',
-    image: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1200&q=80'
+    image: '/images/services/video-production.jpg'
   },
   {
     title: 'Content Creation',
@@ -34,7 +34,7 @@ const services = [
   {
     title: 'Sports Marketing',
     desc: 'We turn passion into performance through strategic sports-driven engagement.',
-    image: 'https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=1200&q=80'
+    image: '/images/services/sports-marketing.jpg'
   },
   {
     title: 'Website & Automation',
@@ -44,7 +44,7 @@ const services = [
   {
     title: 'Architectural Design',
     desc: 'We design physical spaces that communicate brand identity and human experience.',
-    image: 'https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=1200&q=80'
+    image: '/images/services/architectural-design.jpg'
   }
 ];
 
