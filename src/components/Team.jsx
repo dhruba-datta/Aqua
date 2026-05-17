@@ -4,7 +4,7 @@ const team = [
   {
     name: 'Sikder Istiaque Ahmed',
     role: 'Director, Strategy & Planning',
-    photo: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=900&q=80',
+    photo: '/images/team/1.jpg',
   },
   {
     name: 'Asif Bahar',
