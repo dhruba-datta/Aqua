@@ -8,7 +8,7 @@ const team = [
   },
   {
     name: 'Asif Bahar',
-    role: 'Chief Operating Officer',
+    role: 'Chief Executive Officer',
     photo: '/images/team/asif-bahar.jpg',
   },
   {
